@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "checkedAt": "2026-10-26T15:48:33.103512+00:00",
+  "lastSuccessAt": "2026-10-26T15:48:33.103512+00:00",
+  "totalFeatures": 100,
+  "routeFeatures": 2,
+  "segments": [
+    {
+      "id": "245",
+      "name": "US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)",
+      "nameId": "Durango-Ski Area",
+      "routeName": "US 550",
+      "primaryMP": 26.89671720359591,
+      "secondaryMP": 55.7869149410012,
+      "currentConditions": [
+        {
+          "conditionDescription": "4s - wet in areas",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1793022368020,
+          "confirmationTime": 1793022368020,
+          "endTime": 4946622368020
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Clear skies. Wind gusts of up to 13 mph are expected.",
+          "updateTime": 1793026200628,
+          "confirmationTime": 1793026200628,
+          "endTime": 1793047800628
+        }
+      ]
+    }
+  ],
+  "note": "Approximate geographic filter; road conditions do not confirm road open/closed."
+}
