@@ -71,8 +71,11 @@ try:
             raw=json.load(r)
         if raw.get('type')!='FeatureCollection' or not isinstance(raw.get('features'),list): raise RuntimeError('Unexpected CDOT response format')
         batch=raw['features']
+        print(f'CDOT diagnostic: page={page} records={len(batch)} collection_keys={sorted(raw.keys())}',flush=True)
         fingerprints=[str((f.get('properties') or {}).get('id') or '')+'|'+str((f.get('properties') or {}).get('name') or '') for f in batch]
-        if page>1 and any(x in seen for x in fingerprints):
+        duplicates=[x for x in fingerprints if x in seen]
+        if page>1 and duplicates:
+            print(f'CDOT diagnostic: page={page} duplicate_count={len(duplicates)} examples={duplicates[:5]}',flush=True)
             pagination_note='CDOT pagination returned repeated records; completeness unverified'
             break
         seen.update(fingerprints);features.extend(batch)
@@ -83,6 +86,9 @@ try:
         pagination_note='CDOT page limit reached; completeness unverified'
     route=[f for f in features if str((f.get('properties') or {}).get('routeName','')).strip().upper()=='US 550']
     selected=[segment(f) for f in route if near(f)]
+    print('CDOT diagnostic: total_features=',len(features),'us550_features=',len(route),'mp49_92_segments=',len(selected),flush=True)
+    for seg in selected:
+        print('CDOT corridor:',seg.get('id'),seg.get('primaryMP'),seg.get('secondaryMP'),seg.get('name'),flush=True)
     selected.sort(key=lambda f:float(f.get('primaryMP') or 0))
     # Coverage is based on explicit CDOT segment labels, not an inferred road condition.
     places={'Red Mountain Pass':('red mountain','ouray-silverton','ouray to silverton'), 'Silverton':('silverton',), 'Molas Pass':('molas', 'silverton-durango', 'silverton to durango')}
@@ -99,3 +105,8 @@ except Exception as exc:
     print('CDOT retrieval failed:',str(exc)[:180],file=sys.stderr)
 OUT.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
 print('CDOT status:',result['status'],'segments:',len(result['segments']))
+
+# Fail the retrieval step when the published snapshot is marked unavailable.
+# The workflow's publish step uses always() to preserve the stale/error warning.
+if result['status'] != 'ok':
+    sys.exit(1)
