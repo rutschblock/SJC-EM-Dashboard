@@ -1,9 +1,10 @@
 {
-  "status": "ok",
-  "checkedAt": "2026-10-26T15:48:33.103512+00:00",
+  "changeTracking": {
+    "unavailable": true
+  },
+  "status": "error",
+  "checkedAt": "2026-10-26T18:04:18.111013+00:00",
   "lastSuccessAt": "2026-10-26T15:48:33.103512+00:00",
-  "totalFeatures": 100,
-  "routeFeatures": 2,
   "segments": [
     {
       "id": "245",
@@ -32,5 +33,9 @@
       ]
     }
   ],
-  "note": "Approximate geographic filter; road conditions do not confirm road open/closed."
+  "coverage": {},
+  "potentiallyTruncated": false,
+  "paginationNote": "",
+  "error": "CDOT pagination returned repeated records; completeness unverified",
+  "note": "CDOT retrieval failed; any displayed segments are previously retrieved data, not current road status."
 }
