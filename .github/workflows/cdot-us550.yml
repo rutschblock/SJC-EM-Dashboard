@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        id: checkout
         with:
           ref: main
 
@@ -26,6 +27,7 @@ jobs:
         run: python3 scripts/fetch_cdot.py
 
       - name: Commit public condition data safely
+        if: always() && steps.checkout.outcome == 'success'
         shell: bash
         run: |
           set -euo pipefail
