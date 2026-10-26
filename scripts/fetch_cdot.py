@@ -17,8 +17,8 @@ def points(x):
         else:
             for item in x: yield from points(item)
 
-CORRIDOR_START_MP=48.0  # Purgatory vicinity; approximate, deliberately inclusive
-CORRIDOR_END_MP=101.0  # Ouray vicinity; approximate, deliberately inclusive
+CORRIDOR_START_MP=49.0  # Requested US 550 corridor southern boundary
+CORRIDOR_END_MP=92.0  # Requested US 550 corridor northern boundary
 
 def corridor_overlap(p):
     try:
@@ -28,9 +28,7 @@ def corridor_overlap(p):
 
 def near(f):
     p=f.get('properties') or {}
-    if corridor_overlap(p): return True
-    if in_bounds(p.get('primaryLongitude'),p.get('primaryLatitude')) or in_bounds(p.get('secondaryLongitude'),p.get('secondaryLatitude')): return True
-    return any(in_bounds(*xy) for xy in points((f.get('geometry') or {}).get('coordinates',[])))
+    return corridor_overlap(p)
 
 def condition(c):
     return {k:c.get(k) for k in ('conditionDescription','sourceType','additionalData','updateTime','confirmationTime','endTime')}
