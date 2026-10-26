@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>San Juan County | NWS Weather</title><style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#172334;background:#fff}
+*{box-sizing:border-box}body{margin:0;background:#fff}header{background:#fff;border-bottom:3px solid #183b60;padding:22px max(18px,calc((100vw - 1160px)/2))}
+h1{margin:0;font-size:clamp(24px,4vw,34px);color:#143655}header p{margin:7px 0;color:#536477}
+.wrap{max-width:1160px;margin:auto;padding:22px 18px 55px}.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
+button{border:0;border-radius:8px;background:#165b95;color:#fff;font-weight:700;padding:11px 16px;cursor:pointer}button:disabled{opacity:.6;cursor:wait}
+.muted,.meta{color:#526477}.meta{font-size:13px;line-height:1.5}.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}section{background:#fff;border:1px solid #d7e0e8;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 2px 9px #142f4510}
+h2{margin:0 0 12px;font-size:20px;color:#153d60}.alert{border-left:5px solid #e8a923;background:#fff9e9;border-radius:7px;padding:13px;margin:12px 0}
+.alert.warning{border-left-color:#c72c2c;background:#fff0f0}.alert.watch{border-left-color:#c68c00}.alert h3{margin:0 0 7px}.alert p{margin:7px 0;white-space:pre-wrap}
+a{color:#145b9b}.forecast{border-top:1px solid #dce4eb;padding:12px 0}.forecast:first-of-type{border-top:0}.forecast strong{display:block}.forecast small{color:#526477}.forecast p{margin:5px 0}
+.hours{display:flex;gap:10px;overflow:auto}.hour{flex:0 0 138px;background:#f0f5fa;border:1px solid #dbe5ef;border-radius:9px;padding:12px}.hour strong{display:block;margin:8px 0;font-size:22px}
+.status{padding:8px 0 15px}.error{color:#a61919}.pill{display:inline-block;background:#e7f0f8;border-radius:20px;padding:4px 9px;font-size:12px;margin:4px 4px 0 0}
+textarea{width:100%;height:230px;background:#fff;color:#172334;border:1px solid #b9c9d6;border-radius:8px;padding:12px;line-height:1.5;resize:vertical}
+footer{color:#526477;font-size:13px;line-height:1.6}.count{font-size:30px;font-weight:800}.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:18px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}.tile{border:1px solid #d7e0e8;border-radius:10px;padding:13px;background:#f8fafc}
+.tile strong{display:block;margin-bottom:5px;font-size:14px}.tile .count{color:#143d60}.tile small{color:#526477}.tile.active{border-color:#c57923;background:#fff8e9}
+.changes{background:#f2f7fb;border-left:4px solid #165b95;padding:12px;border-radius:6px;white-space:pre-wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.filters button{background:#eef3f7;color:#25425b;border:1px solid #cbd9e4;padding:7px 11px;font-size:13px}.filters button.selected{background:#165b95;color:white}
+.note{font-size:13px;color:#536477}
+</style></head><body><header><h1>San Juan County Weather</h1><p>National Weather Service · San Juan County, Colorado · Silverton 81433</p></header><main class="wrap"><div class="bar"><button id="refresh">↻ Refresh NWS data</button><span class="muted" id="updated">Not loaded yet</span></div><div class="status" id="status" role="status">Loading official NWS data…</div><div class="cards" id="categoryCards" aria-label="Weather hazard categories"></div>
+<section><h2>Changes since previous check</h2><div class="meta">Compares alert identifiers with the previous successful check stored in this browser. It does not detect text edits to existing alerts.</div><div id="changes" class="changes">Waiting for first successful check.</div></section>
+<div class="grid"><div><section><h2>Active county alerts</h2><div class="meta">County-wide alert lookup (COC111). Individual alerts may cover only part of the county; read each alert's affected area.</div><div class="filters" id="filters"></div><div id="alerts">Loading…</div><p class="meta"><a href="https://forecast.weather.gov/MapClick.php?lat=37.811&lon=-107.665" target="_blank" rel="noopener">Official Silverton forecast ↗</a> · <a href="https://www.weather.gov/gjt/" target="_blank" rel="noopener">NWS Grand Junction ↗</a></p></section><section><h2>Emergency management overview</h2><div id="overview" class="meta">Loading…</div></section><section><h2>Public-information draft</h2><p class="meta">Generated from available NWS alert text. Review before posting; not an automatic public warning.</p><textarea id="summary" readonly></textarea><p><button id="copy">Copy summary</button></p></section></div><div><section><h2>Silverton forecast</h2><div class="meta">Representative point forecast, not a county-wide mountain forecast.</div><div id="forecast">Loading…</div></section></div></div><section><h2>Next 12 hours · Silverton</h2><div id="hourly" class="hours">Loading…</div></section><footer>Data source: <a href="https://api.weather.gov/" target="_blank" rel="noopener">api.weather.gov</a>. Forecast data and alerts may be delayed, revised, or unavailable. Always verify critical decisions with official NWS products. This dashboard does not provide automatic notifications and should not be your sole warning source. Refreshes are manual.</footer></main><script>
+const BASE='https://api.weather.gov', LAT=37.811, LON=-107.665, COUNTY='COC111';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+const fmt=d=>d?new Date(d).toLocaleString('en-US',{timeZone:'America/Denver',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}):'Not specified';
+const categories=['Severe weather','Flooding','Winter storms','Fire weather','Other'];
+let active=[],filter='All',lastSuccess=null;
+const classify=a=>{
+ const s=(a.event||'').toLowerCase();
+ if(/flood|flash flood|hydrologic/.test(s))return 'Flooding';
+ if(/fire weather|red flag|extreme fire|fire danger/.test(s))return 'Fire weather';
+ if(/winter|snow|blizzard|ice storm|freezing rain|avalanche|wind chill|cold weather|freeze|frost/.test(s))return 'Winter storms';
+ if(/thunderstorm|tornado|severe weather|high wind|wind advisory|dust storm|hail/.test(s))return 'Severe weather';
+ return 'Other';
+};
+async function get(url){const r=await fetch(url,{headers:{Accept:'application/geo+json'}});if(!r.ok)throw Error('NWS API '+r.status+' ('+new URL(url).pathname+')');return r.json()}
+function drawCategories(){
+ $('categoryCards').innerHTML=categories.map(c=>{const n=active.filter(a=>classify(a)===c).length;return `<div class="tile ${n?'active':''}"><strong>${esc(c)}</strong><div class="count">${n}</div><small>${n?'Active alert'+(n===1?'':'s'):'No active alerts returned'}</small></div>`}).join('');
+ $('overview').innerHTML=categories.map(c=>`<p><strong>${esc(c)}:</strong> ${active.filter(a=>classify(a)===c).length} active NWS alert(s) returned.</p>`).join('')+
+ '<p><strong>Operational note:</strong> Alert coverage can be limited to portions of the county. Fire restrictions and wildfire smoke advisories may come from agencies outside this NWS feed and are not comprehensively monitored here.</p>';
+}
+function drawFilters(){
+ $('filters').innerHTML=['All',...categories].map(c=>`<button type="button" data-category="${esc(c)}" class="${filter===c?'selected':''}">${esc(c)}</button>`).join('');
+ $('filters').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.category;drawFilters();drawAlerts()}));
+}
+function drawAlerts(){
+ const arr=active.filter(a=>filter==='All'||classify(a)===filter);
+ $('alerts').innerHTML=arr.length?arr.map(a=>`<article class="alert ${/warning/i.test(a.event)?'warning':/watch/i.test(a.event)?'watch':''}"><h3>${esc(a.event)}</h3><div class="meta">${esc(classify(a))} · ${esc(a.severity||'Unspecified')} severity · Expires ${esc(fmt(a.expires||a.ends))}</div><p><strong>${esc(a.headline||'')}</strong></p><p>${esc((a.description||'').slice(0,1600))}</p><p class="meta">Affected: ${esc(a.areaDesc||'Not listed')}</p>${a.instruction?`<p><strong>Instructions:</strong> ${esc(a.instruction.slice(0,1100))}</p>`:''}${/^https:\/\//.test(a.id)?`<a href="${esc(a.id)}" target="_blank" rel="noopener">View official alert ↗</a>`:''}</article>`).join(''):'<p>No active alerts returned for this selection. This is not an all-clear.</p>';
+}
+function compareChanges(){
+ const current=active.map(a=>a.identifier||a.id).filter(Boolean);
+ let prev=null;
+ try{prev=JSON.parse(localStorage.getItem('sjc_nws_previous_alerts')||'null')}catch(e){}
+ if(prev&&Array.isArray(prev.ids)){
+  const added=active.filter(a=>!prev.ids.includes(a.identifier||a.id));
+  const removed=prev.ids.filter(id=>!current.includes(id));
+  $('changes').textContent=`Since ${fmt(prev.checked)}:\n${added.length?added.map(a=>'NEW: '+a.event+' — '+(a.areaDesc||'area unspecified')).join('\n'):'No newly identified alerts.'}\n${removed.length?removed.length+' previously seen alert(s) no longer active.':'No previously seen alerts removed.'}`;
+ }else $('changes').textContent='First successful check in this browser. Future refreshes will show newly issued and no-longer-active alerts.';
+ try{localStorage.setItem('sjc_nws_previous_alerts',JSON.stringify({ids:current,checked:new Date().toISOString()}))}catch(e){$('changes').textContent+='\nNote: Browser storage is unavailable; changes may not persist.'}
+}
+function drawSummary(){
+ const lines=['SAN JUAN COUNTY WEATHER UPDATE','NWS alert check: '+fmt(new Date().toISOString()),''];
+ if(active.length){for(const a of active){lines.push('• '+a.event.toUpperCase()+' ('+classify(a)+')'+(a.expires?' — expires '+fmt(a.expires):''));lines.push('Affected area: '+(a.areaDesc||'See official alert'));if(a.headline)lines.push(a.headline);if(a.instruction)lines.push('NWS instructions: '+a.instruction.trim().replace(/\s+/g,' ').slice(0,350));lines.push('');}}
+ else lines.push('No active NWS alerts returned for San Juan County at the time of this check.');
+ lines.push('Source: National Weather Service. Verify current conditions and alert details at weather.gov before distribution.');
+ $('summary').value=lines.join('\n');
+}
+function renderForecast(p){$('forecast').innerHTML=(p||[]).slice(0,6).map(x=>`<div class="forecast"><strong>${esc(x.name)} · ${esc(x.temperature)}°${esc(x.temperatureUnit)}</strong><small>Wind: ${esc(x.windSpeed)} ${esc(x.windDirection)}</small><p>${esc(x.shortForecast)}</p></div>`).join('')||'Forecast unavailable.'}
+function renderHourly(p){$('hourly').innerHTML=(p||[]).slice(0,12).map(x=>`<div class="hour"><div>${esc(new Date(x.startTime).toLocaleString('en-US',{timeZone:'America/Denver',hour:'numeric'}))}</div><strong>${esc(x.temperature)}°${esc(x.temperatureUnit)}</strong><div>${esc(x.shortForecast)}</div><p class="meta">Wind ${esc(x.windSpeed)}</p>${x.probabilityOfPrecipitation?.value!=null?`<span class="pill">Precip. ${esc(x.probabilityOfPrecipitation.value)}%</span>`:''}</div>`).join('')||'Hourly forecast unavailable.'}
+async function load(){
+ const btn=$('refresh');btn.disabled=true;$('status').textContent='Updating alerts and forecasts…';const errors=[];
+ await Promise.all([
+  (async()=>{try{
+   const d=await get(BASE+'/alerts/active?zone='+COUNTY);
+   active=(d.features||[]).map(x=>({id:x.id,...x.properties})).sort((a,b)=>(['Extreme','Severe','Moderate','Minor','Unknown'].indexOf(a.severity)+5)%5-( ['Extreme','Severe','Moderate','Minor','Unknown'].indexOf(b.severity)+5)%5);
+   drawCategories();drawFilters();drawAlerts();drawSummary();compareChanges();lastSuccess=new Date();
+  }catch(e){errors.push('Alerts: '+e.message);$('alerts').textContent='Unable to retrieve county alerts; previous alert information may be stale.';$('changes').textContent='Unable to check changes. Do not interpret this as an all-clear.';$('overview').textContent='Alert retrieval failed.';$('categoryCards').innerHTML='';$('summary').value='NWS ALERT RETRIEVAL FAILED. Verify directly with NWS before issuing a public update.'}})(),
+  (async()=>{try{
+   const pt=await get(BASE+'/points/'+LAT+','+LON);
+   const r=await Promise.allSettled([pt.properties.forecast,pt.properties.forecastHourly].map(get));
+   if(r[0].status==='fulfilled')renderForecast(r[0].value.properties.periods);else throw r[0].reason;
+   if(r[1].status==='fulfilled')renderHourly(r[1].value.properties.periods);else{errors.push('Hourly: '+r[1].reason.message);$('hourly').textContent='Hourly forecast unavailable.'}
+  }catch(e){errors.push('Forecast: '+e.message);$('forecast').textContent='Forecast unavailable.';$('hourly').textContent='Hourly forecast unavailable.'}})()
+ ]);
+ $('updated').textContent='Checked '+fmt(new Date());$('status').textContent=errors.length?'Some NWS data could not load: '+errors.join(' | '):'NWS data loaded successfully';$('status').className='status '+(errors.length?'error':'');btn.disabled=false;
+}
+$('refresh').addEventListener('click',load);
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('summary').value);$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent='Copy summary',1500)}catch(e){$('summary').focus();$('summary').select();document.execCommand('copy')}});
+load();
+</script></body></html>
