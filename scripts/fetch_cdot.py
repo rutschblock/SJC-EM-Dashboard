@@ -51,7 +51,7 @@ def compare_road_reports(before,after):
 try:
     key=os.environ.get('CDOT_API_KEY','').strip()
     if not key: raise RuntimeError('CDOT_API_KEY secret is not configured')
-    url='https://data.cotrip.org/api/v1/roadConditions?'+urllib.parse.urlencode({'apiKey':key})
+    url='https://data.cotrip.org/api/v1/roadConditions?'+urllib.parse.urlencode({'apiKey':key,'pageSize':1000})
     req=urllib.request.Request(url,headers={'Accept':'application/json','User-Agent':'SJC-EM-Dashboard/1.0'})
     with urllib.request.urlopen(req,timeout=35) as r:
         if r.status!=200: raise RuntimeError('CDOT HTTP '+str(r.status))
@@ -61,12 +61,16 @@ try:
     route=[f for f in features if str((f.get('properties') or {}).get('routeName','')).strip().upper()=='US 550']
     selected=[segment(f) for f in route if near(f)]
     selected.sort(key=lambda f:float(f.get('primaryMP') or 0))
+    # Coverage is based on explicit CDOT segment labels, not an inferred road condition.
+    places={'Red Mountain Pass':('red mountain','ouray-silverton','ouray to silverton'), 'Silverton':('silverton',), 'Molas Pass':('molas', 'silverton-durango', 'silverton to durango')}
+    coverage={name:{'reported':any(any(term in (str(seg.get('name') or '')+' '+str(seg.get('nameId') or '')).lower() for term in terms) for seg in selected),'matchingSegments':[str(seg.get('nameId') or seg.get('name')) for seg in selected if any(term in (str(seg.get('name') or '')+' '+str(seg.get('nameId') or '')).lower() for term in terms)]} for name,terms in places.items()}
+    potentially_truncated=len(features)>=100
     if not selected: raise RuntimeError('No matching US 550 segments; geographic filter may need adjustment')
     previous_ok=prior.get('status')=='ok' and isinstance(prior.get('segments'),list)
     changes=compare_road_reports(road_snapshot(prior['segments']),road_snapshot(selected)) if previous_ok else []
-    result={'changeTracking':{'initialized':previous_ok,'checkedAt':now,'changes':changes,'previousSuccessAt':prior.get('lastSuccessAt') if previous_ok else None},'status':'ok','checkedAt':now,'lastSuccessAt':now,'totalFeatures':len(features),'routeFeatures':len(route),'segments':selected,'note':'Approximate geographic filter; road conditions do not confirm road open/closed.'}
+    result={'changeTracking':{'initialized':previous_ok,'checkedAt':now,'changes':changes,'previousSuccessAt':prior.get('lastSuccessAt') if previous_ok else None},'status':'ok','checkedAt':now,'lastSuccessAt':now,'totalFeatures':len(features),'routeFeatures':len(route),'potentiallyTruncated':potentially_truncated,'coverage':coverage,'segments':selected,'note':'Approximate geographic filter; road conditions do not confirm road open/closed.'}
 except Exception as exc:
-    result={'changeTracking':dict(prior.get('changeTracking') or {},unavailable=True),'status':'error','checkedAt':now,'lastSuccessAt':prior.get('lastSuccessAt'),'segments':prior.get('segments',[]),'error':str(exc)[:180],'note':'CDOT retrieval failed; any displayed segments are previously retrieved data, not current road status.'}
+    result={'changeTracking':dict(prior.get('changeTracking') or {},unavailable=True),'status':'error','checkedAt':now,'lastSuccessAt':prior.get('lastSuccessAt'),'segments':prior.get('segments',[]),'coverage':prior.get('coverage',{}),'potentiallyTruncated':prior.get('potentiallyTruncated',False),'error':str(exc)[:180],'note':'CDOT retrieval failed; any displayed segments are previously retrieved data, not current road status.'}
     print('CDOT retrieval failed:',str(exc)[:180],file=sys.stderr)
 OUT.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
 print('CDOT status:',result['status'],'segments:',len(result['segments']))
