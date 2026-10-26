@@ -18,8 +18,10 @@ footer{color:#526477;font-size:13px;line-height:1.6}.count{font-size:30px;font-w
 .changes{background:#f2f7fb;border-left:4px solid #165b95;padding:12px;border-radius:6px;white-space:pre-wrap}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.filters button{background:#eef3f7;color:#25425b;border:1px solid #cbd9e4;padding:7px 11px;font-size:13px}.filters button.selected{background:#165b95;color:white}
 .note{font-size:13px;color:#536477}
+
+.cdot-segment{border-top:1px solid #dce4eb;padding:12px 0}.cdot-segment h3{margin:0 0 5px;font-size:16px}.cdot-segment p{margin:5px 0}.cdot-status{border-left:4px solid #165b95;background:#f1f7fb;padding:10px}.cdot-status.bad{border-color:#b32121;background:#fff1f1}
 </style></head><body><header><h1>San Juan County Weather</h1><p>National Weather Service · San Juan County, Colorado · Silverton 81433</p></header><main class="wrap"><div class="bar"><button id="refresh">↻ Refresh NWS data</button><span class="muted" id="updated">Not loaded yet</span></div><div class="status" id="status" role="status">Loading official NWS data…</div><div class="cards" id="categoryCards" aria-label="Weather hazard categories"></div>
-<section><h2>Changes since previous check</h2><div class="meta">Compares alert identifiers with the previous successful check stored in this browser. It does not detect text edits to existing alerts.</div><div id="changes" class="changes">Waiting for first successful check.</div></section>
+<section id="cdot-section"><h2>US 550 · Ouray to Durango <small style="font-size:13px;color:#526477">(Preview)</small></h2><p class="meta">CDOT road surface reports and forecasts. This feed does <strong>not</strong> confirm whether the highway is open or closed. Approximate geographic filter; unlisted sections have unknown conditions. <a href="https://www.cotrip.org/" target="_blank" rel="noopener">Verify with COtrip</a>.</p><div id="cdot-status" class="cdot-status bad" role="status">CDOT data loading…</div><div id="cdot-segments"></div><p class="meta">Feed retrieval scheduled approximately every 30 minutes. Operator observations may be older than retrieval. Always verify current conditions before travel.</p></section><section><h2>Changes since previous check</h2><div class="meta">Compares alert identifiers with the previous successful check stored in this browser. It does not detect text edits to existing alerts.</div><div id="changes" class="changes">Waiting for first successful check.</div></section>
 <div class="grid"><div><section><h2>Active county alerts</h2><div class="meta">County-wide alert lookup (COC111). Individual alerts may cover only part of the county; read each alert's affected area.</div><div class="filters" id="filters"></div><div id="alerts">Loading…</div><p class="meta"><a href="https://forecast.weather.gov/MapClick.php?lat=37.811&lon=-107.665" target="_blank" rel="noopener">Official Silverton forecast ↗</a> · <a href="https://www.weather.gov/gjt/" target="_blank" rel="noopener">NWS Grand Junction ↗</a></p></section><section><h2>Emergency management overview</h2><div id="overview" class="meta">Loading…</div></section><section><h2>Public-information draft</h2><p class="meta">Generated from available NWS alert text. Review before posting; not an automatic public warning.</p><textarea id="summary" readonly></textarea><p><button id="copy">Copy summary</button></p></section></div><div><section><h2>Silverton forecast</h2><div class="meta">Representative point forecast, not a county-wide mountain forecast.</div><div id="forecast">Loading…</div></section></div></div><section><h2>Next 12 hours · Silverton</h2><div id="hourly" class="hours">Loading…</div></section><footer>Data source: <a href="https://api.weather.gov/" target="_blank" rel="noopener">api.weather.gov</a>. Forecast data and alerts may be delayed, revised, or unavailable. Always verify critical decisions with official NWS products. This dashboard does not provide automatic notifications and should not be your sole warning source. Refreshes are manual.</footer></main><script>
 const BASE='https://api.weather.gov', LAT=37.811, LON=-107.665, COUNTY='COC111';
 const $=id=>document.getElementById(id);
@@ -89,4 +91,32 @@ async function load(){
 $('refresh').addEventListener('click',load);
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('summary').value);$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent='Copy summary',1500)}catch(e){$('summary').focus();$('summary').select();document.execCommand('copy')}});
 load();
+
+async function loadCdotPreview(){
+ const state=document.getElementById('cdot-status'), list=document.getElementById('cdot-segments');
+ try{
+  const r=await fetch('./data/cdot_us550.json?ts='+Date.now(),{cache:'no-store'});
+  if(!r.ok)throw Error('CDOT data unavailable (HTTP '+r.status+')');
+  const data=await r.json();list.replaceChildren();
+  const age=data.lastSuccessAt?Date.now()-Date.parse(data.lastSuccessAt):Infinity;
+  const fresh=data.status==='ok'&&Number.isFinite(age)&&age>=0&&age<=3600000;
+  state.className='cdot-status'+(fresh?'':' bad');
+  state.textContent=(fresh?'CDOT feed retrieved':'DATA UNAVAILABLE / STALE — verify with COtrip')+' · Last successful retrieval: '+(data.lastSuccessAt?new Date(data.lastSuccessAt).toLocaleString():'never')+(data.status==='error'?' · Retrieval failed':'');
+  for(const seg of data.segments||[]){
+   const card=document.createElement('article');card.className='cdot-segment';
+   const title=document.createElement('h3');title.textContent=seg.nameId||seg.name||'US 550 segment';card.append(title);
+   const info=document.createElement('p');info.className='meta';info.textContent=(seg.name||'')+' · MP '+[seg.primaryMP,seg.secondaryMP].map(v=>v==null?'?':Number(v).toFixed(2)).join('–');card.append(info);
+   const conditions=seg.currentConditions||[];
+   if(!conditions.length){const p=document.createElement('p');p.textContent='No condition entries; status unknown.';card.append(p)}
+   for(const c of conditions){
+    const p=document.createElement('p');p.textContent=(c.sourceType==='NDFD'?'Forecast':c.sourceType==='OPERATOR'?'Operator report':c.sourceType||'Report')+': '+(c.conditionDescription||'Not specified')+(c.additionalData?' — '+c.additionalData:'');card.append(p);
+    const stamp=c.confirmationTime||c.updateTime;
+    const time=document.createElement('p');time.className='meta';time.textContent='Report timestamp: '+(stamp?new Date(Number(stamp)).toLocaleString():'not provided')+(c.endTime&&Number(c.endTime)<Date.now()?' · EXPIRED':'');card.append(time);
+   }
+   list.append(card);
+  }
+  if(!(data.segments||[]).length){const p=document.createElement('p');p.textContent='No matching US 550 corridor records; status unknown.';list.append(p)}
+ }catch(e){state.className='cdot-status bad';state.textContent='DATA UNAVAILABLE — '+e.message+'. Verify with COtrip.';list.replaceChildren()}
+}
+loadCdotPreview();
 </script></body></html>
