@@ -29,6 +29,25 @@ def segment(f):
     p=f['properties']
     return {k:p.get(k) for k in ('id','name','nameId','routeName','primaryMP','secondaryMP') } | {'currentConditions':[condition(c) for c in (p.get('currentConditions') or []) if isinstance(c,dict)]}
 
+def road_snapshot(segments):
+    result={}
+    for seg in segments:
+        sid=str(seg.get('id') or seg.get('nameId') or seg.get('name'))
+        reports=sorted({(str(c.get('conditionDescription') or '').strip(),str(c.get('additionalData') or '').strip()) for c in seg.get('currentConditions',[]) if c.get('sourceType')=='OPERATOR'})
+        result[sid]={'name':seg.get('name') or seg.get('nameId') or sid,'reports':reports}
+    return result
+
+def compare_road_reports(before,after):
+    changes=[]
+    for sid in sorted(set(before)|set(after)):
+        if sid not in before: changes.append({'segment':after[sid]['name'],'type':'new_segment','detail':'Newly reported segment; current operator report: '+('; '.join(' — '.join(filter(None,x)) for x in after[sid]['reports']) or 'none')})
+        elif sid not in after: changes.append({'segment':before[sid]['name'],'type':'missing_segment','detail':'Previously reported segment absent from current feed; road status unknown'})
+        elif before[sid]['reports']!=after[sid]['reports']:
+            old='; '.join(' — '.join(filter(None,x)) for x in before[sid]['reports']) or 'No operator report'
+            new='; '.join(' — '.join(filter(None,x)) for x in after[sid]['reports']) or 'No operator report'
+            changes.append({'segment':after[sid]['name'],'type':'report_changed','detail':'Operator report changed from '+old+' to '+new})
+    return changes
+
 try:
     key=os.environ.get('CDOT_API_KEY','').strip()
     if not key: raise RuntimeError('CDOT_API_KEY secret is not configured')
@@ -43,9 +62,11 @@ try:
     selected=[segment(f) for f in route if near(f)]
     selected.sort(key=lambda f:float(f.get('primaryMP') or 0))
     if not selected: raise RuntimeError('No matching US 550 segments; geographic filter may need adjustment')
-    result={'status':'ok','checkedAt':now,'lastSuccessAt':now,'totalFeatures':len(features),'routeFeatures':len(route),'segments':selected,'note':'Approximate geographic filter; road conditions do not confirm road open/closed.'}
+    previous_ok=prior.get('status')=='ok' and isinstance(prior.get('segments'),list)
+    changes=compare_road_reports(road_snapshot(prior['segments']),road_snapshot(selected)) if previous_ok else []
+    result={'changeTracking':{'initialized':previous_ok,'checkedAt':now,'changes':changes,'previousSuccessAt':prior.get('lastSuccessAt') if previous_ok else None},'status':'ok','checkedAt':now,'lastSuccessAt':now,'totalFeatures':len(features),'routeFeatures':len(route),'segments':selected,'note':'Approximate geographic filter; road conditions do not confirm road open/closed.'}
 except Exception as exc:
-    result={'status':'error','checkedAt':now,'lastSuccessAt':prior.get('lastSuccessAt'),'segments':prior.get('segments',[]),'error':str(exc)[:180],'note':'CDOT retrieval failed; any displayed segments are previously retrieved data, not current road status.'}
+    result={'changeTracking':dict(prior.get('changeTracking') or {},unavailable=True),'status':'error','checkedAt':now,'lastSuccessAt':prior.get('lastSuccessAt'),'segments':prior.get('segments',[]),'error':str(exc)[:180],'note':'CDOT retrieval failed; any displayed segments are previously retrieved data, not current road status.'}
     print('CDOT retrieval failed:',str(exc)[:180],file=sys.stderr)
 OUT.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
 print('CDOT status:',result['status'],'segments:',len(result['segments']))
