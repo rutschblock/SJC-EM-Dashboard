@@ -91,6 +91,8 @@ try:
     coverage={name:{'reported':any(any(term in (str(seg.get('name') or '')+' '+str(seg.get('nameId') or '')).lower() for term in terms) for seg in selected),'matchingSegments':[str(seg.get('nameId') or seg.get('name')) for seg in selected if any(term in (str(seg.get('name') or '')+' '+str(seg.get('nameId') or '')).lower() for term in terms)]} for name,terms in places.items()}
     potentially_truncated=not pagination_complete
     if not selected: raise RuntimeError('No matching US 550 segments; corridor filter or API response needs review')
+    if not pagination_complete:
+        raise RuntimeError(pagination_note or 'CDOT feed completeness cannot be verified')
     previous_ok=prior.get('status')=='ok' and isinstance(prior.get('segments'),list)
     changes=compare_road_reports(road_snapshot(prior['segments']),road_snapshot(selected)) if previous_ok else []
     result={'changeTracking':{'initialized':previous_ok,'checkedAt':now,'changes':changes,'previousSuccessAt':prior.get('lastSuccessAt') if previous_ok else None},'status':'ok','checkedAt':now,'lastSuccessAt':now,'totalFeatures':len(features),'routeFeatures':len(route),'potentiallyTruncated':potentially_truncated,'paginationNote':pagination_note,'coverage':coverage,'segments':selected,'note':'Approximate geographic filter; road conditions do not confirm road open/closed.'}
