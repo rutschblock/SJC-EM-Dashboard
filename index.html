@@ -86,7 +86,7 @@ async function load(){
    if(r[1].status==='fulfilled')renderHourly(r[1].value.properties.periods);else{errors.push('Hourly: '+r[1].reason.message);$('hourly').textContent='Hourly forecast unavailable.'}
   }catch(e){errors.push('Forecast: '+e.message);$('forecast').textContent='Forecast unavailable.';$('hourly').textContent='Hourly forecast unavailable.'}})()
  ]);
- $('updated').textContent='Checked '+fmt(new Date());$('status').textContent=errors.length?'Some NWS data could not load: '+errors.join(' | '):'NWS data loaded successfully';$('status').className='status '+(errors.length?'error':'');btn.disabled=false;
+ $('updated').textContent='Checked '+fmt(new Date());$('status').textContent=errors.length?'Some NWS data could not load: '+errors.join(' | '):'NWS data loaded successfully';$('status').className='status '+(errors.length?'error':'');btn.disabled=false;updateFreshness('nws-freshness','NWS alerts',lastSuccess?.toISOString(),60,!!lastSuccess);
 }
 $('refresh').addEventListener('click',load);
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('summary').value);$('copy').textContent='Copied';setTimeout(()=>$('copy').textContent='Copy summary',1500)}catch(e){$('summary').focus();$('summary').select();document.execCommand('copy')}});
@@ -145,8 +145,6 @@ makeCompact(document.getElementById('cdot-section'),false);
 makeCompact(document.getElementById('cdot-changes-section'),true);
 makeCompact(document.getElementById('hourly'),false);
 const hourlySection=document.getElementById('hourly')?.closest('section');if(hourlySection)makeCompact(hourlySection,false);
-const originalLoad=load;
-load=async function(){await originalLoad();updateFreshness('nws-freshness','NWS alerts',lastSuccess?.toISOString(),60,!!lastSuccess)};
 const originalCdot=loadCdotPreview;
 loadCdotPreview=async function(){await originalCdot();try{const r=await fetch('./data/cdot_us550.json?freshness='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('unavailable');const d=await r.json();updateFreshness('cdot-freshness','CDOT',d.lastSuccessAt,60,d.status==='ok')}catch(e){updateFreshness('cdot-freshness','CDOT',null,60,false)}};
 loadCdotPreview();
