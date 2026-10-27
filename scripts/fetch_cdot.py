@@ -59,29 +59,53 @@ def compare_road_reports(before,after):
 try:
     key=os.environ.get('CDOT_API_KEY','').strip()
     if not key: raise RuntimeError('CDOT_API_KEY secret is not configured')
-    # The CDOT roadConditions endpoint has been observed returning the same
-    # FeatureCollection for different pageIndex values. Those parameters are
-    # not reliable evidence of pagination on this endpoint. Fetch the complete
-    # collection without pagination parameters, then validate corridor coverage.
-    url='https://data.cotrip.org/api/v1/roadConditions?'+urllib.parse.urlencode({'apiKey':key})
-    req=urllib.request.Request(url,headers={'Accept':'application/json','User-Agent':'SJC-EM-Dashboard/1.0'})
-    with urllib.request.urlopen(req,timeout=45) as response:
-        if response.status!=200: raise RuntimeError('CDOT HTTP '+str(response.status))
-        raw=json.load(response)
-    if raw.get('type')!='FeatureCollection' or not isinstance(raw.get('features'),list):
-        raise RuntimeError('Unexpected CDOT response format')
+    # CDOT has returned only the first 100 statewide features even when
+    # pageIndex/pageSize were supplied. Probe alternative common collection
+    # limit conventions, but ACCEPT a response only if the entire US 550
+    # corridor is present. Never treat an ignored parameter as pagination.
+    base='https://data.cotrip.org/api/v1/roadConditions'
+    strategies=[('limit=1000',{'limit':1000}),
+                ('pageSize=1000',{'pageSize':1000}),
+                ('size=1000',{'size':1000}),
+                ('unpaginated',{})]
+    candidates=[]
+    for label,params in strategies:
+        url=base+'?'+urllib.parse.urlencode(dict(params,apiKey=key))
+        req=urllib.request.Request(url,headers={'Accept':'application/json','User-Agent':'SJC-EM-Dashboard/1.0'})
+        try:
+            with urllib.request.urlopen(req,timeout=45) as response:
+                if response.status!=200: raise RuntimeError('CDOT HTTP '+str(response.status))
+                raw=json.load(response)
+            if raw.get('type')!='FeatureCollection' or not isinstance(raw.get('features'),list):
+                raise RuntimeError('Unexpected CDOT response format')
+            batch=raw['features']
+            if not batch: raise RuntimeError('Empty collection')
+            if raw.get('hasNextPage') is True or raw.get('next') or raw.get('nextPage'):
+                raise RuntimeError('Additional pages indicated')
+            for field in ('totalCount','totalFeatures','numberMatched'):
+                total=raw.get(field)
+                if isinstance(total,int) and total>len(batch):
+                    raise RuntimeError(field+' exceeds returned features')
+            matches=[f for f in batch if str((f.get('properties') or {}).get('routeName','')).strip().upper()=='US 550' and near(f)]
+            intervals=sorted((max(CORRIDOR_START_MP,min(float(f['properties']['primaryMP']),float(f['properties']['secondaryMP']))),min(CORRIDOR_END_MP,max(float(f['properties']['primaryMP']),float(f['properties']['secondaryMP'])))) for f in matches)
+            reached=CORRIDOR_START_MP
+            for start,end in intervals:
+                if start>reached+0.25: break
+                reached=max(reached,end)
+            complete=bool(intervals) and reached>=CORRIDOR_END_MP-0.25
+            print('CDOT probe:',label,'features=',len(batch),'us550=',len(matches),'covered_through=',round(reached,2),'complete=',complete,flush=True)
+            candidates.append((complete,len(batch),label,raw))
+            if complete: break
+        except Exception as probe_error:
+            print('CDOT probe:',label,'failed:',str(probe_error)[:130],flush=True)
+    if not candidates: raise RuntimeError('All CDOT request strategies failed')
+    complete,_,chosen,raw=next((c for c in candidates if c[0]),max(candidates,key=lambda c:c[1]))
     features=raw['features']
-    pagination_note='Unpaginated CDOT FeatureCollection; corridor coverage checked'
-    pagination_complete=True
-    print('CDOT diagnostic: unpaginated records=',len(features),'collection_keys=',sorted(raw.keys()),flush=True)
-    if not features: raise RuntimeError('CDOT returned an empty road conditions collection')
-    # Do not mark a capped or explicitly incomplete collection as healthy.
-    if raw.get('hasNextPage') is True or raw.get('next') or raw.get('nextPage'):
-        raise RuntimeError('CDOT indicates additional pages; completeness unverified')
-    for field in ('totalCount','totalFeatures','numberMatched'):
-        total=raw.get(field)
-        if isinstance(total,int) and total>len(features):
-            raise RuntimeError('CDOT response incomplete: '+field+' exceeds returned features')
+    pagination_note='CDOT request strategy: '+chosen+'; corridor coverage validated'
+    pagination_complete=complete
+    print('CDOT diagnostic: strategy=',chosen,'records=',len(features),'collection_keys=',sorted(raw.keys()),flush=True)
+    if not complete:
+        raise RuntimeError('CDOT API responses incomplete; tried limit, pageSize, size and unpaginated requests')
     route=[f for f in features if str((f.get('properties') or {}).get('routeName','')).strip().upper()=='US 550']
     selected=[segment(f) for f in route if near(f)]
     print('CDOT diagnostic: total_features=',len(features),'us550_features=',len(route),'mp49_92_segments=',len(selected),flush=True)
