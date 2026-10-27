@@ -1,10 +1,39 @@
 {
   "changeTracking": {
-    "unavailable": true
+    "initialized": false,
+    "checkedAt": "2026-10-27T15:03:14.273029+00:00",
+    "changes": [],
+    "previousSuccessAt": null
   },
-  "status": "error",
-  "checkedAt": "2026-10-27T14:53:04.363172+00:00",
-  "lastSuccessAt": "2026-10-26T15:48:33.103512+00:00",
+  "status": "ok",
+  "checkedAt": "2026-10-27T15:03:14.273029+00:00",
+  "lastSuccessAt": "2026-10-27T15:03:14.273029+00:00",
+  "totalFeatures": 198,
+  "routeFeatures": 6,
+  "potentiallyTruncated": false,
+  "paginationNote": "CDOT request strategy: limit=1000; corridor coverage validated",
+  "coverage": {
+    "Red Mountain Pass": {
+      "reported": true,
+      "matchingSegments": [
+        "Molas Pass",
+        "Silverton-Red Mountain Pass"
+      ]
+    },
+    "Silverton": {
+      "reported": true,
+      "matchingSegments": [
+        "Silverton-Red Mountain Pass"
+      ]
+    },
+    "Molas Pass": {
+      "reported": true,
+      "matchingSegments": [
+        "Coal Bank Pass",
+        "Molas Pass"
+      ]
+    }
+  },
   "segments": [
     {
       "id": "245",
@@ -15,27 +44,127 @@
       "secondaryMP": 55.7869149410012,
       "currentConditions": [
         {
-          "conditionDescription": "4s - wet in areas",
+          "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1793022368020,
-          "confirmationTime": 1793022368020,
-          "endTime": 4946622368020
+          "updateTime": 1793109787552,
+          "confirmationTime": 1793109787552,
+          "endTime": 4946709787552
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Clear skies. Wind gusts of up to 13 mph are expected.",
-          "updateTime": 1793026200628,
-          "confirmationTime": 1793026200628,
-          "endTime": 1793047800628
+          "additionalData": "Mostly clear. Wind gusts of up to 17 mph are expected.",
+          "updateTime": 1793111665660,
+          "confirmationTime": 1793111665660,
+          "endTime": 1793133265660
+        }
+      ]
+    },
+    {
+      "id": "246",
+      "name": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
+      "nameId": "Coal Bank Pass",
+      "routeName": "US 550",
+      "primaryMP": 55.7869149410012,
+      "secondaryMP": 65.88309991558688,
+      "currentConditions": [
+        {
+          "conditionDescription": "3 - dry",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1793109787552,
+          "confirmationTime": 1793109787552,
+          "endTime": 4946709787552
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Mostly clear. Wind gusts of up to 14 mph are expected.",
+          "updateTime": 1793111665660,
+          "confirmationTime": 1793111665660,
+          "endTime": 1793133265660
+        }
+      ]
+    },
+    {
+      "id": "247",
+      "name": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
+      "nameId": "Molas Pass",
+      "routeName": "US 550",
+      "primaryMP": 65.88309991558688,
+      "secondaryMP": 74.88257952888567,
+      "currentConditions": [
+        {
+          "conditionDescription": "3 - dry",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1793109787552,
+          "confirmationTime": 1793109787552,
+          "endTime": 4946709787552
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Clear skies. Wind gusts of up to 14 mph are expected.",
+          "updateTime": 1793111665660,
+          "confirmationTime": 1793111665660,
+          "endTime": 1793133265660
+        }
+      ]
+    },
+    {
+      "id": "248",
+      "name": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
+      "nameId": "Silverton-Red Mountain Pass",
+      "routeName": "US 550",
+      "primaryMP": 74.88257952888567,
+      "secondaryMP": 98.118708545585,
+      "currentConditions": [
+        {
+          "conditionDescription": "3 - dry",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1793109787552,
+          "confirmationTime": 1793109787552,
+          "endTime": 4946709787552
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Clear skies. Wind gusts of up to 19 mph are expected.",
+          "updateTime": 1793111665660,
+          "confirmationTime": 1793111665660,
+          "endTime": 1793133265660
+        }
+      ]
+    },
+    {
+      "id": "249",
+      "name": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
+      "nameId": "Ouray-Ridgway-Montrose",
+      "routeName": "US 550",
+      "primaryMP": 98.118708545585,
+      "secondaryMP": 130.2166222300553,
+      "currentConditions": [
+        {
+          "conditionDescription": "3 - dry",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1793109787552,
+          "confirmationTime": 1793109787552,
+          "endTime": 4946709787552
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Clear skies. Wind gusts of up to 15 mph are expected.",
+          "updateTime": 1793111665660,
+          "confirmationTime": 1793111665660,
+          "endTime": 1793133265660
         }
       ]
     }
   ],
-  "coverage": {},
-  "potentiallyTruncated": false,
-  "paginationNote": "",
-  "error": "Incomplete US 550 coverage: gap near MP 55.8 to 98.1",
-  "note": "CDOT retrieval failed; any displayed segments are previously retrieved data, not current road status."
+  "note": "Approximate geographic filter; road conditions do not confirm road open/closed."
 }
