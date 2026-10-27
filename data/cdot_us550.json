@@ -1,13 +1,13 @@
 {
   "changeTracking": {
-    "initialized": false,
-    "checkedAt": "2026-10-27T15:03:14.273029+00:00",
+    "initialized": true,
+    "checkedAt": "2026-10-27T15:07:44.753664+00:00",
     "changes": [],
-    "previousSuccessAt": null
+    "previousSuccessAt": "2026-10-27T15:03:14.273029+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-10-27T15:03:14.273029+00:00",
-  "lastSuccessAt": "2026-10-27T15:03:14.273029+00:00",
+  "checkedAt": "2026-10-27T15:07:44.753664+00:00",
+  "lastSuccessAt": "2026-10-27T15:07:44.753664+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
