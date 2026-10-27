@@ -17,8 +17,8 @@ def points(x):
         else:
             for item in x: yield from points(item)
 
-CORRIDOR_START_MP=49.0  # Requested US 550 corridor southern boundary
-CORRIDOR_END_MP=92.0  # Requested US 550 corridor northern boundary
+CORRIDOR_START_MP=26.8967172035959  # US 550 southern boundary near Durango (CDOT segment endpoint)
+CORRIDOR_END_MP=98.118708545585  # US 550 northern boundary near Ouray (user-supplied endpoint)
 
 def corridor_overlap(p):
     try:
