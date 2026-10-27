@@ -59,31 +59,29 @@ def compare_road_reports(before,after):
 try:
     key=os.environ.get('CDOT_API_KEY','').strip()
     if not key: raise RuntimeError('CDOT_API_KEY secret is not configured')
-    # Fetch pages defensively. Never silently claim complete coverage if the API
-    # ignores pagination or returns a repeated/capped first page.
-    features=[]; seen=set(); pagination_complete=False; pagination_note=''
-    for page in range(1,21):
-        params={'apiKey':key,'pageSize':100,'pageIndex':page}
-        url='https://data.cotrip.org/api/v1/roadConditions?'+urllib.parse.urlencode(params)
-        req=urllib.request.Request(url,headers={'Accept':'application/json','User-Agent':'SJC-EM-Dashboard/1.0'})
-        with urllib.request.urlopen(req,timeout=35) as r:
-            if r.status!=200: raise RuntimeError('CDOT HTTP '+str(r.status))
-            raw=json.load(r)
-        if raw.get('type')!='FeatureCollection' or not isinstance(raw.get('features'),list): raise RuntimeError('Unexpected CDOT response format')
-        batch=raw['features']
-        print(f'CDOT diagnostic: page={page} records={len(batch)} collection_keys={sorted(raw.keys())}',flush=True)
-        fingerprints=[str((f.get('properties') or {}).get('id') or '')+'|'+str((f.get('properties') or {}).get('name') or '') for f in batch]
-        duplicates=[x for x in fingerprints if x in seen]
-        if page>1 and duplicates:
-            print(f'CDOT diagnostic: page={page} duplicate_count={len(duplicates)} examples={duplicates[:5]}',flush=True)
-            pagination_note='CDOT pagination returned repeated records; completeness unverified'
-            break
-        seen.update(fingerprints);features.extend(batch)
-        if len(batch)<100:
-            pagination_complete=True
-            break
-    else:
-        pagination_note='CDOT page limit reached; completeness unverified'
+    # The CDOT roadConditions endpoint has been observed returning the same
+    # FeatureCollection for different pageIndex values. Those parameters are
+    # not reliable evidence of pagination on this endpoint. Fetch the complete
+    # collection without pagination parameters, then validate corridor coverage.
+    url='https://data.cotrip.org/api/v1/roadConditions?'+urllib.parse.urlencode({'apiKey':key})
+    req=urllib.request.Request(url,headers={'Accept':'application/json','User-Agent':'SJC-EM-Dashboard/1.0'})
+    with urllib.request.urlopen(req,timeout=45) as response:
+        if response.status!=200: raise RuntimeError('CDOT HTTP '+str(response.status))
+        raw=json.load(response)
+    if raw.get('type')!='FeatureCollection' or not isinstance(raw.get('features'),list):
+        raise RuntimeError('Unexpected CDOT response format')
+    features=raw['features']
+    pagination_note='Unpaginated CDOT FeatureCollection; corridor coverage checked'
+    pagination_complete=True
+    print('CDOT diagnostic: unpaginated records=',len(features),'collection_keys=',sorted(raw.keys()),flush=True)
+    if not features: raise RuntimeError('CDOT returned an empty road conditions collection')
+    # Do not mark a capped or explicitly incomplete collection as healthy.
+    if raw.get('hasNextPage') is True or raw.get('next') or raw.get('nextPage'):
+        raise RuntimeError('CDOT indicates additional pages; completeness unverified')
+    for field in ('totalCount','totalFeatures','numberMatched'):
+        total=raw.get(field)
+        if isinstance(total,int) and total>len(features):
+            raise RuntimeError('CDOT response incomplete: '+field+' exceeds returned features')
     route=[f for f in features if str((f.get('properties') or {}).get('routeName','')).strip().upper()=='US 550']
     selected=[segment(f) for f in route if near(f)]
     print('CDOT diagnostic: total_features=',len(features),'us550_features=',len(route),'mp49_92_segments=',len(selected),flush=True)
@@ -95,6 +93,16 @@ try:
     coverage={name:{'reported':any(any(term in (str(seg.get('name') or '')+' '+str(seg.get('nameId') or '')).lower() for term in terms) for seg in selected),'matchingSegments':[str(seg.get('nameId') or seg.get('name')) for seg in selected if any(term in (str(seg.get('name') or '')+' '+str(seg.get('nameId') or '')).lower() for term in terms)]} for name,terms in places.items()}
     potentially_truncated=not pagination_complete
     if not selected: raise RuntimeError('No matching US 550 segments; corridor filter or API response needs review')
+    # Require the road-condition segments to span the full requested corridor.
+    # Overlap alone is insufficient: a partial first page could look successful.
+    intervals=sorted((max(CORRIDOR_START_MP,min(float(x['primaryMP']),float(x['secondaryMP']))),min(CORRIDOR_END_MP,max(float(x['primaryMP']),float(x['secondaryMP'])))) for x in selected)
+    reached=CORRIDOR_START_MP
+    for start,end in intervals:
+        if start>reached+0.25:
+            raise RuntimeError(f'Incomplete US 550 coverage: gap near MP {reached:.1f} to {start:.1f}')
+        reached=max(reached,end)
+    if reached<CORRIDOR_END_MP-0.25:
+        raise RuntimeError(f'Incomplete US 550 coverage: ends at MP {reached:.1f}, expected MP {CORRIDOR_END_MP:.1f}')
     if not pagination_complete:
         raise RuntimeError(pagination_note or 'CDOT feed completeness cannot be verified')
     previous_ok=prior.get('status')=='ok' and isinstance(prior.get('segments'),list)
