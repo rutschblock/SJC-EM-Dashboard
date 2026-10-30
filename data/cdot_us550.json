@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-10-30T21:25:45.079183+00:00",
+    "checkedAt": "2026-10-30T23:41:34.346866+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-10-30T20:05:19.676128+00:00"
+    "previousSuccessAt": "2026-10-30T21:25:45.079183+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-10-30T21:25:45.079183+00:00",
-  "lastSuccessAt": "2026-10-30T21:25:45.079183+00:00",
+  "checkedAt": "2026-10-30T23:41:34.346866+00:00",
+  "lastSuccessAt": "2026-10-30T23:41:34.346866+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -54,10 +54,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Likelihood of Light Rain Showers. Slight chance of Thunderstorms. Wind gusts of up to 17 mph are expected.",
-          "updateTime": 1793394176532,
-          "confirmationTime": 1793394176532,
-          "endTime": 1793415776532
+          "additionalData": "Expect Light Rain Showers. Slight chance of Thunderstorms. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1793401620648,
+          "confirmationTime": 1793401620648,
+          "endTime": 1793423220648
         }
       ]
     },
@@ -80,10 +80,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Likelihood of Light Snow Showers.  Likelihood of Light Rain Showers. Wind gusts of up to 14 mph are expected.",
-          "updateTime": 1793394176532,
-          "confirmationTime": 1793394176532,
-          "endTime": 1793415776532
+          "additionalData": "Expect Light Snow Showers. Expect Light Rain Showers. Wind gusts of up to 13 mph are expected.",
+          "updateTime": 1793401620648,
+          "confirmationTime": 1793401620648,
+          "endTime": 1793423220648
         }
       ]
     },
@@ -106,10 +106,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Likelihood of Light Snow Showers. Slight chance of Thunderstorms. Wind gusts of up to 14 mph are expected.",
-          "updateTime": 1793394176532,
-          "confirmationTime": 1793394176532,
-          "endTime": 1793415776532
+          "additionalData": "Expect Light Snow Showers. Expect Light Rain Showers. Wind gusts of up to 13 mph are expected.",
+          "updateTime": 1793401620648,
+          "confirmationTime": 1793401620648,
+          "endTime": 1793423220648
         }
       ]
     },
@@ -124,10 +124,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Chance of Light Rain Showers. Expect up to a trace of new snow accumulation. Wind gusts of up to 22 mph are expected.",
-          "updateTime": 1793394176532,
-          "confirmationTime": 1793394176532,
-          "endTime": 1793415776532
+          "additionalData": "Expect Light Snow Showers. Expect Light Rain Showers. Expect up to a trace of new snow accumulation. Wind gusts of up to 22 mph are expected.",
+          "updateTime": 1793401620648,
+          "confirmationTime": 1793401620648,
+          "endTime": 1793423220648
         },
         {
           "conditionDescription": "3 - dry",
@@ -158,10 +158,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Slight chance of Thunderstorms. Slight chance of Light Rain Showers. Wind gusts of up to 13 mph are expected.",
-          "updateTime": 1793394176532,
-          "confirmationTime": 1793394176532,
-          "endTime": 1793415776532
+          "additionalData": "Chance of Light Rain Showers. Slight chance of Thunderstorms. Wind gusts of up to 13 mph are expected.",
+          "updateTime": 1793401620648,
+          "confirmationTime": 1793401620648,
+          "endTime": 1793423220648
         }
       ]
     }
