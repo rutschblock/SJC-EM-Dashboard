@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-10-31T11:10:11.337172+00:00",
+    "checkedAt": "2026-10-31T13:33:09.566467+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-10-31T06:52:56.446898+00:00"
+    "previousSuccessAt": "2026-10-31T11:10:11.337172+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-10-31T11:10:11.337172+00:00",
-  "lastSuccessAt": "2026-10-31T11:10:11.337172+00:00",
+  "checkedAt": "2026-10-31T13:33:09.566467+00:00",
+  "lastSuccessAt": "2026-10-31T13:33:09.566467+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -54,10 +54,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 6 mph are expected.",
-          "updateTime": 1793442580154,
-          "confirmationTime": 1793442580154,
-          "endTime": 1793464180154
+          "additionalData": "Mostly cloudy. Wind gusts of up to 10 mph are expected.",
+          "updateTime": 1793450054585,
+          "confirmationTime": 1793450054585,
+          "endTime": 1793471654585
         }
       ]
     },
@@ -80,10 +80,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Overcast skies. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1793442580154,
-          "confirmationTime": 1793442580154,
-          "endTime": 1793464180154
+          "additionalData": "Mostly cloudy. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 11 mph are expected.",
+          "updateTime": 1793450054585,
+          "confirmationTime": 1793450054585,
+          "endTime": 1793471654585
         }
       ]
     },
@@ -106,10 +106,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1793442580154,
-          "confirmationTime": 1793442580154,
-          "endTime": 1793464180154
+          "additionalData": "Mostly cloudy. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 11 mph are expected.",
+          "updateTime": 1793450054585,
+          "confirmationTime": 1793450054585,
+          "endTime": 1793471654585
         }
       ]
     },
@@ -125,9 +125,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Mostly cloudy. Expect up to 2 inches of new snow accumulation. Wind gusts of up to 15 mph are expected.",
-          "updateTime": 1793442580154,
-          "confirmationTime": 1793442580154,
-          "endTime": 1793464180154
+          "updateTime": 1793450054585,
+          "confirmationTime": 1793450054585,
+          "endTime": 1793471654585
         },
         {
           "conditionDescription": "4s-9 - wet in areas, icy spots",
@@ -159,9 +159,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Mostly cloudy. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1793442580154,
-          "confirmationTime": 1793442580154,
-          "endTime": 1793464180154
+          "updateTime": 1793450054585,
+          "confirmationTime": 1793450054585,
+          "endTime": 1793471654585
         }
       ]
     }
