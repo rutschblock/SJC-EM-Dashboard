@@ -1,34 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-10-31T05:24:48.848570+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry to 4-5 wet, rain"
-      },
-      {
-        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry to 4s-9 - wet in areas, icy spots"
-      },
-      {
-        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry to 4s-9 - wet in areas, icy spots"
-      },
-      {
-        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry to 4s-9 - wet in areas, icy spots"
-      }
-    ],
-    "previousSuccessAt": "2026-10-31T00:59:21.172464+00:00"
+    "checkedAt": "2026-10-31T06:52:56.446898+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-10-31T05:24:48.848570+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-10-31T05:24:48.848570+00:00",
-  "lastSuccessAt": "2026-10-31T05:24:48.848570+00:00",
+  "checkedAt": "2026-10-31T06:52:56.446898+00:00",
+  "lastSuccessAt": "2026-10-31T06:52:56.446898+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -75,10 +54,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Slight chance of Light Snow Showers. Slight chance of Light Rain Showers. Wind gusts of up to 14 mph are expected.",
-          "updateTime": 1793423953205,
-          "confirmationTime": 1793423953205,
-          "endTime": 1793445553205
+          "additionalData": "Overcast skies. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1793427674147,
+          "confirmationTime": 1793427674147,
+          "endTime": 1793449274147
         }
       ]
     },
@@ -101,10 +80,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Slight chance of Light Snow Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 17 mph are expected.",
-          "updateTime": 1793423953205,
-          "confirmationTime": 1793423953205,
-          "endTime": 1793445553205
+          "additionalData": "Slight chance of Light Snow Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 15 mph are expected.",
+          "updateTime": 1793427674147,
+          "confirmationTime": 1793427674147,
+          "endTime": 1793449274147
         }
       ]
     },
@@ -127,10 +106,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Slight chance of Light Snow Showers. Slight chance of Light Rain Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 17 mph are expected.",
-          "updateTime": 1793423953205,
-          "confirmationTime": 1793423953205,
-          "endTime": 1793445553205
+          "additionalData": "Slight chance of Light Snow Showers. Slight chance of Light Rain Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 15 mph are expected.",
+          "updateTime": 1793427674147,
+          "confirmationTime": 1793427674147,
+          "endTime": 1793449274147
         }
       ]
     },
@@ -143,20 +122,20 @@
       "secondaryMP": 98.118708545585,
       "currentConditions": [
         {
-          "conditionDescription": "forecast text included",
-          "sourceType": "NDFD",
-          "additionalData": "Slight chance of Light Snow Showers. Slight chance of Light Rain Showers. Expect up to 2 inches of new snow accumulation. Wind gusts of up to 25 mph are expected.",
-          "updateTime": 1793423953205,
-          "confirmationTime": 1793423953205,
-          "endTime": 1793445553205
-        },
-        {
           "conditionDescription": "4s-9 - wet in areas, icy spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793419819262,
           "confirmationTime": 1793419819262,
           "endTime": 4947019819262
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Slight chance of Light Snow Showers. Expect up to 2 inches of new snow accumulation. Wind gusts of up to 22 mph are expected.",
+          "updateTime": 1793427674147,
+          "confirmationTime": 1793427674147,
+          "endTime": 1793449274147
         }
       ]
     },
@@ -179,10 +158,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Slight chance of Light Rain Showers. Wind gusts of up to 11 mph are expected.",
-          "updateTime": 1793423953205,
-          "confirmationTime": 1793423953205,
-          "endTime": 1793445553205
+          "additionalData": "Overcast skies. Wind gusts of up to 10 mph are expected.",
+          "updateTime": 1793427674147,
+          "confirmationTime": 1793427674147,
+          "endTime": 1793449274147
         }
       ]
     }
