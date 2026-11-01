@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check the official NWS Grand Junction DSS PDF and write dashboard freshness metadata."""
+import argparse
 import datetime as dt
 import hashlib
 import io
@@ -11,6 +12,9 @@ from pypdf import PdfReader
 
 URL = "https://www.weather.gov/media/gjt/DssPacket.pdf"
 OUT = pathlib.Path("data/dss_packet.json")
+parser = argparse.ArgumentParser()
+parser.add_argument("--event-check", action="store_true", help="Only fetch the DSS PDF if significant local weather alerts are active")
+args = parser.parse_args()
 now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 previous = {}
 if OUT.exists():
@@ -19,6 +23,35 @@ if OUT.exists():
     except (ValueError, OSError):
         pass
 result = dict(previous)
+# Low-volume alert polling during potential events; only an active alert triggers an extra PDF fetch.
+if args.event_check:
+    try:
+        headers = {"User-Agent": "SJC-EM-Dashboard (emergency management DSS monitoring)", "Accept": "application/geo+json"}
+        # Include county and adjacent mountain / fire-weather forecast zones monitored by the dashboard.
+        significant = ("winter storm", "blizzard", "snow squall", "winter weather", "ice storm",
+                       "flood", "high wind", "wind advisory", "thunderstorm", "tornado",
+                       "red flag", "fire weather", "extreme cold", "extreme heat")
+        active = []
+        for zone in ("COC111", "COZ018", "COZ019", "COZ295"):
+            request = urllib.request.Request("https://api.weather.gov/alerts/active?zone=" + zone, headers=headers)
+            with urllib.request.urlopen(request, timeout=18) as response:
+                alerts = json.load(response).get("features", [])
+            active.extend(x.get("properties", {}).get("event", "") for x in alerts)
+        matches = sorted(set(event for event in active if any(word in event.lower() for word in significant)))
+        if not matches:
+            print("No significant active NWS alerts; skipping extra DSS PDF request")
+            raise SystemExit(0)
+        print("Event-based DSS check triggered by:", ", ".join(matches))
+        result["check_mode"] = "event"
+        result["trigger_alerts"] = matches
+    except SystemExit:
+        raise
+    except Exception as exc:
+        print("NWS alert status not verified; skipping event-only PDF request:", exc)
+        raise SystemExit(0)
+else:
+    result["check_mode"] = "daily"
+    result["trigger_alerts"] = []
 result["checked_at"] = now
 try:
     request = urllib.request.Request(URL, headers={"User-Agent": "SJC-EM-Dashboard/1.0 (official public NWS DSS PDF checker)", "Cache-Control": "no-cache"})
