@@ -1,7 +1,7 @@
 name: NWS DSS Packet freshness check
 on:
   schedule:
-    - cron: '7,37 * * * *'
+    - cron: '17 12 * * *'
   workflow_dispatch:
 permissions:
   contents: write
