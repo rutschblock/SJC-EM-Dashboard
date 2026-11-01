@@ -1,24 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-01T22:20:06.524990+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 7 - slushy; additional web text included — Rain to 8-10 icy, snow packed"
-      },
-      {
-        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 7 - slushy; additional web text included — Rain to 8-10 icy, snow packed"
-      }
-    ],
-    "previousSuccessAt": "2026-11-01T19:06:25.863332+00:00"
+    "checkedAt": "2026-11-01T22:44:25.739436+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-01T22:20:06.524990+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-01T22:20:06.524990+00:00",
-  "lastSuccessAt": "2026-11-01T22:20:06.524990+00:00",
+  "checkedAt": "2026-11-01T22:44:25.739436+00:00",
+  "lastSuccessAt": "2026-11-01T22:44:25.739436+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
