@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-01T00:22:28.372634+00:00",
+    "checkedAt": "2026-11-01T05:51:33.187325+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-10-31T23:39:42.170633+00:00"
+    "previousSuccessAt": "2026-11-01T00:22:28.372634+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-01T00:22:28.372634+00:00",
-  "lastSuccessAt": "2026-11-01T00:22:28.372634+00:00",
+  "checkedAt": "2026-11-01T05:51:33.187325+00:00",
+  "lastSuccessAt": "2026-11-01T05:51:33.187325+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -54,10 +54,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Rain Showers. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1793491031758,
-          "confirmationTime": 1793491031758,
-          "endTime": 1793512631758
+          "additionalData": "Expect Moderate Rain Showers. Wind gusts of up to 15 mph are expected.",
+          "updateTime": 1793509732964,
+          "confirmationTime": 1793509732964,
+          "endTime": 1793531332964
         }
       ]
     },
@@ -80,10 +80,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Expect up to 1 inches of new snow accumulation. Wind gusts of up to 13 mph are expected.",
-          "updateTime": 1793491031758,
-          "confirmationTime": 1793491031758,
-          "endTime": 1793512631758
+          "additionalData": "Expect Moderate Rain Showers. Expect Light Snow Showers. Expect up to 1 inches of new snow accumulation. Wind gusts of up to 27 mph are expected.",
+          "updateTime": 1793509732964,
+          "confirmationTime": 1793509732964,
+          "endTime": 1793531332964
         }
       ]
     },
@@ -106,10 +106,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Chance of Light Rain Showers. Expect up to 0.5 inches of new snow accumulation. Wind gusts of up to 13 mph are expected.",
-          "updateTime": 1793491031758,
-          "confirmationTime": 1793491031758,
-          "endTime": 1793512631758
+          "additionalData": "Expect Moderate Rain Showers. Expect Light Snow Showers. Expect up to 0.5 inches of new snow accumulation. Wind gusts of up to 27 mph are expected.",
+          "updateTime": 1793509732964,
+          "confirmationTime": 1793509732964,
+          "endTime": 1793531332964
         }
       ]
     },
@@ -132,10 +132,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Chance of Light Rain Showers. Expect up to a trace of new snow accumulation. Wind gusts of up to 27 mph are expected.",
-          "updateTime": 1793491031758,
-          "confirmationTime": 1793491031758,
-          "endTime": 1793512631758
+          "additionalData": "Expect Moderate Snow Showers. Expect Moderate Rain Showers. Expect up to 1 inches of new snow accumulation. Wind gusts of up to 43 mph are expected.",
+          "updateTime": 1793509732964,
+          "confirmationTime": 1793509732964,
+          "endTime": 1793531332964
         }
       ]
     },
@@ -148,20 +148,20 @@
       "secondaryMP": 130.2166222300553,
       "currentConditions": [
         {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Likelihood of Light Rain Showers. Wind gusts of up to 20 mph are expected.",
+          "updateTime": 1793509732964,
+          "confirmationTime": 1793509732964,
+          "endTime": 1793531332964
+        },
+        {
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793392997490,
           "confirmationTime": 1793481962398,
           "endTime": 4947081962398
-        },
-        {
-          "conditionDescription": "forecast text included",
-          "sourceType": "NDFD",
-          "additionalData": "Slight chance of Light Rain Showers. Wind gusts of up to 19 mph are expected.",
-          "updateTime": 1793491031758,
-          "confirmationTime": 1793491031758,
-          "endTime": 1793512631758
         }
       ]
     }
