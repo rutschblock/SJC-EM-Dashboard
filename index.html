@@ -109,6 +109,36 @@ function initGeologicNotes(){
   catch(e){stamp.textContent='Unable to save notes in this browser';}
  });
 }
+
+/* Demonstration only: CAIC undocumented proxy used by caic-python; may break or be blocked by CORS. */
+let caicDemo={checked:0,loading:false};
+async function fetchCaicDemo(){
+ const out=document.getElementById('caic-demo-status');if(!out||caicDemo.loading)return;
+ caicDemo.loading=true;out.textContent='Requesting CAIC forecast demonstration data…';
+ try{
+  const date=new Date().toISOString(),inner='/products/all?datetime='+encodeURIComponent(date)+'&includeExpired=true';
+  const endpoint='https://avalanche.state.co.us/api-proxy/avid?_api_proxy_uri='+encodeURIComponent(inner);
+  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),12000);
+  let response;
+  try{response=await fetch(endpoint,{signal:controller.signal,headers:{Accept:'application/json'}})}
+  finally{clearTimeout(timeout)}
+  if(!response.ok)throw Error('HTTP '+response.status);
+  const data=await response.json();
+  const products=Array.isArray(data)?data:Array.isArray(data?.products)?data.products:null;
+  if(!products)throw Error('Unexpected CAIC response format');
+  const matches=products.filter(p=>/san juan|silverton|needles|coal bank|molas|red mountain/i.test(JSON.stringify({title:p.title,name:p.name,area:p.area,zones:p.zones,regions:p.regions,forecast_zone:p.forecast_zone})));
+  caicDemo.checked=Date.now();
+  out.innerHTML='<strong>CAIC demonstration request succeeded</strong><p>Retrieved '+products.length+' forecast products; '+matches.length+' have San Juan-related names in the available metadata.</p>'+
+   (matches.length?'<ul>'+matches.slice(0,8).map(p=>'<li>'+esc(String(p.title||p.name||p.area?.name||p.id||'Unnamed CAIC product'))+'</li>').join('')+'</ul>':'<p>No clearly identified San Juan products found. This does not imply low avalanche danger.</p>')+
+   '<p class="meta">Fetched '+esc(fmt(new Date().toISOString()))+'. Experimental data only: no danger rating is inferred. Confirm current conditions at the official CAIC website.</p>';
+ }catch(e){out.textContent='CAIC experimental feed unavailable ('+e.message+'). Use the official CAIC forecast link below.'}
+ finally{caicDemo.loading=false}
+}
+function initCaicDemo(){
+ const btn=document.getElementById('caic-demo-refresh');
+ if(btn)btn.addEventListener('click',fetchCaicDemo);
+}
+
 function renderHazards(){
  const floodWasOpen=!!document.getElementById('flood-resources')?.open;
  const floodLinks=[
@@ -133,6 +163,9 @@ function renderHazards(){
  $('hazard-grid').innerHTML=hazards.map(h=>{
   const count=h.rx?active.filter(a=>h.rx.test(a.event||'')).length:null;
   const status=count===null?'Verify external source':count?count+' matching NWS alert'+(count===1?'':'s'):'No matching NWS alerts returned';
+  if(h.name==='Avalanche'){
+   return '<div class="hazard-item"><strong>Avalanche · CAIC demo</strong><span class="hazard-status '+(count>0?'detected':'')+'">'+esc(status)+'</span><p class="meta">Experimental data source based on the third-party caic-python project. Not an operational forecast or warning feed.</p><div id="caic-demo-status" class="gauge-panel">Click to test the CAIC data connection.</div><button type="button" id="caic-demo-refresh">Fetch CAIC demo data</button><p><a target="_blank" rel="noopener noreferrer" href="https://avalanche.state.co.us/">Official CAIC forecasts ↗</a></p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/gormaniac/caic-python">caic-python source project ↗</a></p></div>';
+  }
   if(h.name==='Flooding'){
    const links=floodLinks.map(([label,url])=>'<li><a target="_blank" rel="noopener noreferrer" href="'+url+'">'+esc(label)+' ↗</a></li>').join('');
    return '<div class="hazard-item hazard-flood"><details id="flood-resources" '+(floodWasOpen?'open':'')+'><summary><strong>Flooding ▾</strong><span class="hazard-status '+(count>0?'detected':'')+'">'+esc(status)+'</span></summary><div id="flood-gauges" class="gauge-panel">Loading USGS observations…</div><p>Stream gauges and river forecast tools (open to view).</p><ul class="hazard-links">'+links+'</ul><p class="meta">Gauge readings and forecasts are not themselves flood warnings. Verify NWS alerts and local conditions.</p><a target="_blank" rel="noopener noreferrer" href="'+h.url+'">NWS flood alerts ↗</a></details></div>';
@@ -142,7 +175,7 @@ function renderHazards(){
   }
   return '<div class="hazard-item"><strong>'+esc(h.name)+'</strong><span class="hazard-status '+(count>0?'detected':'')+'">'+esc(status)+'</span><p>'+esc(h.source)+'</p><a target="_blank" rel="noopener noreferrer" href="'+h.url+'">Check official source ↗</a></div>';
  }).join('');
- initGeologicNotes();updateGaugePanel();loadFloodGauges();
+ initGeologicNotes();initCaicDemo();updateGaugePanel();loadFloodGauges();
 }
 function drawCategories(){
  renderHazards();
