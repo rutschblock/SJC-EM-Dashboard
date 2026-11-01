@@ -30,7 +30,7 @@ try:
     digest = hashlib.sha256(pdf).hexdigest()
     first_page = PdfReader(io.BytesIO(pdf)).pages[0].extract_text() or ""
     # Prefer the packet's own 'Updated:' briefing date, not PDF file modification.
-    match = re.search(r"Updated:\\s*([^\\n]+?)(?=National Weather Service|$|\\n)", first_page, re.I)
+    match = re.search(r"Updated:\s*([^\n]+?)(?=National Weather Service|$|\n)", first_page, re.I)
     issued = match.group(1).strip() if match else None
     if digest != previous.get("sha256"):
         result["changed_at"] = now
