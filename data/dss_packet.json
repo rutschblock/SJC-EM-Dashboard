@@ -1,0 +1,10 @@
+{
+  "changed_at": "2026-11-01T20:04:05Z",
+  "checked_at": "2026-11-01T20:04:05Z",
+  "error": null,
+  "http_last_modified": "Sun, 01 Nov 2026 18:54:37 GMT",
+  "packet_updated": "November 1st, 2026 at 10:00 AM",
+  "sha256": "d913024079fdb62c179c442d96113f60de9bdea683932d0e9cf797735c2f0c32",
+  "status": "ok",
+  "url": "https://www.weather.gov/media/gjt/DssPacket.pdf"
+}
