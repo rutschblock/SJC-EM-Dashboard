@@ -524,9 +524,9 @@ async function refreshDssFreshness(){
   const fmt=v=>new Date(v).toLocaleString('en-US',{timeZone:'America/Denver',dateStyle:'medium',timeStyle:'short',timeZoneName:'short'});
   const issued=d.packet_updated||'not available in PDF text';
   const checked=checkedValid?fmt(d.checked_at):'unknown';
-  const live=d.status==='ok'&&ageHours>=0&&ageHours<=2;
+  const live=d.status==='ok'&&ageHours>=0&&ageHours<=30;
   el.className='dss-freshness'+(d.status!=='ok'?' dss-error':!live?' dss-stale':'');
-  el.textContent=(live?'DSS verified':'DSS verification needed')+' · Briefing updated: '+issued+' · Last checked: '+checked+(ageHours>2?' · CHECK IS OVER 2 HOURS OLD':'')+(d.status!=='ok'?' · Latest check failed':'');
+  el.textContent=(live?'DSS monitor current':'DSS monitor check needed')+' · Briefing updated: '+issued+' · Last checked: '+checked+(ageHours>30?' · CHECK IS OVER 30 HOURS OLD':'')+(d.status!=='ok'?' · Latest check failed':'');
   // The NWS URL is always authoritative. Cache-bust only when opened, not by altering the saved packet.
   const link=document.getElementById('dss-pdf-link');
   if(link)link.addEventListener('click',()=>{link.href='https://www.weather.gov/media/gjt/DssPacket.pdf?refresh='+Date.now()},{once:true});
