@@ -50,8 +50,8 @@ async function get(url){const r=await fetch(url,{headers:{Accept:'application/ge
 // Hazard cards are a view of the existing deduplicated NWS feed, not an independent hazard determination.
 
 const GAUGE_SITES=[
- ['09358550','Cement Creek at Silverton'],
  ['09358000','Animas River at Silverton'],
+ ['09358550','Cement Creek at Silverton'],
  ['09359010','Mineral Creek at Silverton'],
  ['09359020','Animas River below Silverton']
 ];
@@ -98,11 +98,11 @@ async function loadFloodGauges(force=false){
 function renderHazards(){
  const floodWasOpen=!!document.getElementById('flood-resources')?.open;
  const floodLinks=[
-  ['Cement Creek at Silverton · USGS 09358550','https://waterdata.usgs.gov/monitoring-location/USGS-09358550/'],
   ['Animas River at Silverton · USGS 09358000','https://waterdata.usgs.gov/monitoring-location/USGS-09358000/#dataTypeId=continuous-00065-0&period=P7D&showFieldMeasurements=true'],
+  ['Cement Creek at Silverton · USGS 09358550','https://waterdata.usgs.gov/monitoring-location/USGS-09358550/'],
   ['Mineral Creek at Silverton · USGS 09359010','https://waterdata.usgs.gov/monitoring-location/USGS-09359010/#dataTypeId=continuous-00065-0&period=P7D&showFieldMeasurements=true'],
-  ['Colorado Basin River Forecast Center · Map','https://www.cbrfc.noaa.gov/lmap/lmap.html'],
   ['Animas River below Silverton · USGS 09359020','https://waterdata.usgs.gov/monitoring-location/USGS-09359020/'],
+  ['Colorado Basin River Forecast Center · Map','https://www.cbrfc.noaa.gov/lmap/lmap.html'],
   ['USGS · Animas and San Juan basin stations','https://co.water.usgs.gov/infodata/Animas/index.html']
  ];
 
