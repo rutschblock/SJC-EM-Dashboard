@@ -1,10 +1,12 @@
 {
-  "changed_at": "2026-11-01T20:04:05Z",
-  "checked_at": "2026-11-01T20:04:05Z",
+  "changed_at": "2026-11-02T21:45:03Z",
+  "check_mode": "daily",
+  "checked_at": "2026-11-02T21:45:03Z",
   "error": null,
-  "http_last_modified": "Sun, 01 Nov 2026 18:54:37 GMT",
-  "packet_updated": "November 1st, 2026 at 10:00 AM",
-  "sha256": "d913024079fdb62c179c442d96113f60de9bdea683932d0e9cf797735c2f0c32",
+  "http_last_modified": "Mon, 02 Nov 2026 20:24:13 GMT",
+  "packet_updated": "November 2nd, 2026 at 1:00 PM",
+  "sha256": "984af3b807d11000c601ec7d2c0a8f2aa69ab5af9520cdb21891d009c57f4188",
   "status": "ok",
+  "trigger_alerts": [],
   "url": "https://www.weather.gov/media/gjt/DssPacket.pdf"
 }
