@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-02T09:52:53.227615+00:00",
+    "checkedAt": "2026-11-02T19:44:01.709825+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-11-02T09:20:41.212943+00:00"
+    "previousSuccessAt": "2026-11-02T09:52:53.227615+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-02T09:52:53.227615+00:00",
-  "lastSuccessAt": "2026-11-02T09:52:53.227615+00:00",
+  "checkedAt": "2026-11-02T19:44:01.709825+00:00",
+  "lastSuccessAt": "2026-11-02T19:44:01.709825+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -44,44 +44,44 @@
       "secondaryMP": 55.7869149410012,
       "currentConditions": [
         {
-          "conditionDescription": "4 - wet",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1793581286286,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
-        },
-        {
           "conditionDescription": "6 - snow",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793581286286,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "7 - slushy",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793581286286,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "11 - snow packed spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793581286286,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
+        },
+        {
+          "conditionDescription": "4 - wet",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1793581286286,
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Slight chance of Light Rain Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 22 mph are expected.",
-          "updateTime": 1793610478876,
-          "confirmationTime": 1793610478876,
-          "endTime": 1793632078876
+          "additionalData": "Partly cloudy. Wind gusts of up to 37 mph are expected.",
+          "updateTime": 1793647775124,
+          "confirmationTime": 1793647775124,
+          "endTime": 1793669375124
         }
       ]
     },
@@ -98,16 +98,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793570837731,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Expect up to 4 inches of new snow accumulation. Wind gusts of up to 25 mph are expected.",
-          "updateTime": 1793610478876,
-          "confirmationTime": 1793610478876,
-          "endTime": 1793632078876
+          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 28 mph are expected.",
+          "updateTime": 1793647775124,
+          "confirmationTime": 1793647775124,
+          "endTime": 1793669375124
         }
       ]
     },
@@ -124,16 +124,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793570837731,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Likelihood of Light Snow Showers. Expect up to 4 inches of new snow accumulation. Wind gusts of up to 25 mph are expected.",
-          "updateTime": 1793610478876,
-          "confirmationTime": 1793610478876,
-          "endTime": 1793632078876
+          "additionalData": "Chance of Light Snow Showers. Expect up to a trace of new snow accumulation. Wind gusts of up to 28 mph are expected.",
+          "updateTime": 1793647775124,
+          "confirmationTime": 1793647775124,
+          "endTime": 1793669375124
         }
       ]
     },
@@ -148,18 +148,18 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Expect Moderate Snow Showers. Expect up to 7.5 inches of new snow accumulation. Wind gusts of up to 34 mph are expected.",
-          "updateTime": 1793610478876,
-          "confirmationTime": 1793610478876,
-          "endTime": 1793632078876
+          "additionalData": "Expect Light Snow Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 30 mph are expected.",
+          "updateTime": 1793647775124,
+          "confirmationTime": 1793647775124,
+          "endTime": 1793669375124
         },
         {
           "conditionDescription": "6-8-10 snow, icy, snow packed",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793526984647,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         }
       ]
     },
@@ -176,32 +176,32 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793542253371,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "5 - rain",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793542253371,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "6 - snow",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1793542253371,
-          "confirmationTime": 1793609964405,
-          "endTime": 4947209964405
+          "confirmationTime": 1793642404663,
+          "endTime": 4947242404663
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Expect Light Snow Showers. Expect Light Rain Showers. Wind gusts of up to 18 mph are expected.",
-          "updateTime": 1793610478876,
-          "confirmationTime": 1793610478876,
-          "endTime": 1793632078876
+          "additionalData": "Likelihood of Light Snow Showers.  Likelihood of Light Rain Showers. Wind gusts of up to 30 mph are expected.",
+          "updateTime": 1793647775124,
+          "confirmationTime": 1793647775124,
+          "endTime": 1793669375124
         }
       ]
     }
