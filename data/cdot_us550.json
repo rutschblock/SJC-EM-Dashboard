@@ -1,13 +1,29 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-02T19:44:01.709825+00:00",
-    "changes": [],
-    "previousSuccessAt": "2026-11-02T09:52:53.227615+00:00"
+    "checkedAt": "2026-11-02T20:12:56.909292+00:00",
+    "changes": [
+      {
+        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
+        "type": "report_changed",
+        "detail": "Operator report changed from 8-10 icy, snow packed to 4 - wet"
+      },
+      {
+        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
+        "type": "report_changed",
+        "detail": "Operator report changed from 8-10 icy, snow packed to 4 - wet"
+      },
+      {
+        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
+        "type": "report_changed",
+        "detail": "Operator report changed from 6-8-10 snow, icy, snow packed to 4 - wet"
+      }
+    ],
+    "previousSuccessAt": "2026-11-02T19:44:01.709825+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-02T19:44:01.709825+00:00",
-  "lastSuccessAt": "2026-11-02T19:44:01.709825+00:00",
+  "checkedAt": "2026-11-02T20:12:56.909292+00:00",
+  "lastSuccessAt": "2026-11-02T20:12:56.909292+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -94,12 +110,12 @@
       "secondaryMP": 65.88309991558688,
       "currentConditions": [
         {
-          "conditionDescription": "8-10 icy, snow packed",
+          "conditionDescription": "4 - wet",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1793570837731,
-          "confirmationTime": 1793642404663,
-          "endTime": 4947242404663
+          "updateTime": 1793649521038,
+          "confirmationTime": 1793649521038,
+          "endTime": 4947249521038
         },
         {
           "conditionDescription": "forecast text included",
@@ -120,12 +136,12 @@
       "secondaryMP": 74.88257952888567,
       "currentConditions": [
         {
-          "conditionDescription": "8-10 icy, snow packed",
+          "conditionDescription": "4 - wet",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1793570837731,
-          "confirmationTime": 1793642404663,
-          "endTime": 4947242404663
+          "updateTime": 1793649521038,
+          "confirmationTime": 1793649521038,
+          "endTime": 4947249521038
         },
         {
           "conditionDescription": "forecast text included",
@@ -146,20 +162,20 @@
       "secondaryMP": 98.118708545585,
       "currentConditions": [
         {
+          "conditionDescription": "4 - wet",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1793649521038,
+          "confirmationTime": 1793649521038,
+          "endTime": 4947249521038
+        },
+        {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Expect Light Snow Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 30 mph are expected.",
           "updateTime": 1793647775124,
           "confirmationTime": 1793647775124,
           "endTime": 1793669375124
-        },
-        {
-          "conditionDescription": "6-8-10 snow, icy, snow packed",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1793526984647,
-          "confirmationTime": 1793642404663,
-          "endTime": 4947242404663
         }
       ]
     },
