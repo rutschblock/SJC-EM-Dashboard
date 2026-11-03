@@ -26,6 +26,9 @@ jobs:
           CDOT_API_KEY: ${{ secrets.CDOT_API_KEY }}
         run: python3 scripts/fetch_cdot.py
 
+      - name: Retrieve CDOT closure alerts and roadside weather
+        run: python3 scripts/fetch_cdot_intel.py
+
       - name: Commit public condition data safely
         if: ${{ always() && steps.checkout.outcome == 'success' }}
         shell: bash
@@ -34,11 +37,13 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           cp data/cdot_us550.json /tmp/cdot_us550.json
+          cp data/cdot_intel.json /tmp/cdot_intel.json
           for attempt in 1 2 3 4 5; do
             git fetch origin main
             git checkout -B main origin/main
             cp /tmp/cdot_us550.json data/cdot_us550.json
-            git add data/cdot_us550.json
+            cp /tmp/cdot_intel.json data/cdot_intel.json
+            git add data/cdot_us550.json data/cdot_intel.json
             if git diff --cached --quiet; then
               echo "No CDOT data changes to publish."
               exit 0
