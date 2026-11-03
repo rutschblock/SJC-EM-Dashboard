@@ -676,24 +676,18 @@ setInterval(refreshDssFreshness,5*60*1000);
   el.append(c);
  }
  async function query(endpoint,where,spatial=false){
-  const params=new URLSearchParams({where,outFields:'*',returnGeometry:'false',f:'json',resultRecordCount:'1000',_t:String(Date.now())});
-  if(spatial){
-   // ArcGIS spatial intersection includes a closure line that ENTERS the corridor
-   // even when its starting latitude/longitude is outside the box.
-   params.set('geometry',JSON.stringify({xmin:-108.13,ymin:37.18,xmax:-107.35,ymax:38.14,spatialReference:{wkid:4326}}));
-   params.set('geometryType','esriGeometryEnvelope');
-   params.set('inSR','4326');
-   params.set('spatialRel','esriSpatialRelIntersects');
-  }
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),16000);
-  try{
-   const resp=await fetch(endpoint+'?'+params,{signal:ctrl.signal,cache:'no-store'});
-   if(!resp.ok)throw Error('HTTP '+resp.status);
-   const body=await resp.json();
-   if(body.error)throw Error(body.error.message||'ArcGIS query error');
-   if(!Array.isArray(body.features))throw Error('Unexpected response');
-   return {features:body.features.map(f=>f.attributes||{}),truncated:!!body.exceededTransferLimit||body.features.length>=1000};
-  }finally{clearTimeout(timer)}
+  // CDOT's ArcGIS host may block browser cross-origin requests.
+  // The scheduled GitHub workflow retrieves both sources server-side.
+  const resp=await fetch('./data/cdot_intel.json?ts='+Date.now(),{cache:'no-store'});
+  if(!resp.ok)throw Error('Scheduled CDOT data not published yet (HTTP '+resp.status+')');
+  const payload=await resp.json();
+  const name=endpoint===alertUrl?'alerts':'weather';
+  const record=payload[name];
+  if(!record||!Array.isArray(record.features))throw Error('Missing '+name+' snapshot');
+  if(record.status!=='ok')throw Error('Scheduled CDOT retrieval failed: '+(record.error||'unknown error'));
+  const age=Date.now()-Date.parse(record.checkedAt||'');
+  if(!Number.isFinite(age)||age<0||age>90*60*1000)throw Error('CDOT snapshot stale (last successful: '+(record.checkedAt?when(record.checkedAt):'unknown')+')');
+  return {features:record.features,truncated:!!record.truncated,checkedAt:record.checkedAt};
  }
  function corridorAlert(a){
   // Spatial query already limits records to the corridor. Route-name formats vary.
@@ -714,7 +708,7 @@ setInterval(refreshDssFreshness,5*60*1000);
    const unique=new Map();
    for(const x of matching)unique.set(x.alertid||x.objectid||JSON.stringify(x),x);
    const items=[...unique.values()].sort((a,b)=>Number(closure(b))-Number(closure(a))||(Number(b.lastupdateddate)||0)-(Number(a.lastupdateddate)||0));
-   aStatus.textContent='CDOT alert spatial search checked: '+when(Date.now())+' · '+data.features.length+' nearby alert(s) returned; '+items.length+' matched US 550'+(data.truncated?' · RESULTS MAY BE INCOMPLETE':'')+'. No alerts does NOT mean open.';
+   aStatus.textContent='CDOT alert spatial search checked: '+when(data.checkedAt)+' · '+data.features.length+' nearby alert(s) returned; '+items.length+' matched US 550'+(data.truncated?' · RESULTS MAY BE INCOMPLETE':'')+'. No alerts does NOT mean open.';
    if(!items.length)card(aList,'No US 550 alert records matched',['Spatial query returned '+data.features.length+' nearby alert(s), but none identified US 550. This does not confirm an open highway. Compare with COtrip.'],false);
    for(const a of items){
     const closed=closure(a);
@@ -743,7 +737,7 @@ setInterval(refreshDssFreshness,5*60*1000);
     const lat=Number(a.ws_latitude),lon=Number(a.ws_longitude);
     return /550/i.test(String(a.ws_roadname||''))&&Number.isFinite(lat)&&Number.isFinite(lon)&&lat>=37.18&&lat<=38.14&&lon>=-108.13&&lon<=-107.35;
    }).sort((a,b)=>Number(a.ws_milemarker||0)-Number(b.ws_milemarker||0));
-   wStatus.textContent='CDOT sensor search checked: '+when(Date.now())+' · '+stations.length+' station(s) in corridor'+(data.truncated?' · RESULTS MAY BE INCOMPLETE':'')+'. Verify sensor ages individually.';
+   wStatus.textContent='CDOT sensor search checked: '+when(data.checkedAt)+' · '+stations.length+' station(s) in corridor'+(data.truncated?' · RESULTS MAY BE INCOMPLETE':'')+'. Verify sensor ages individually.';
    if(!stations.length)card(wList,'No matching stations returned',['No measured data verified for this corridor.'],false);
    for(const a of stations){
     const updated=a.ws_devicecollectiondt||a.ws_lastupdatedate;
