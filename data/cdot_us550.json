@@ -1,34 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-03T09:58:30.189764+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet to 4s-9 - wet in areas, icy spots"
-      },
-      {
-        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet to 4s-9 - wet in areas, icy spots"
-      },
-      {
-        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet to 9-11 icy spots, snow packed spots"
-      },
-      {
-        "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet; 5 - rain; 6 - snow to 4s - wet in areas"
-      }
-    ],
-    "previousSuccessAt": "2026-11-03T02:35:38.348861+00:00"
+    "checkedAt": "2026-11-03T09:59:04.729902+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-03T09:58:30.189764+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-03T09:58:30.189764+00:00",
-  "lastSuccessAt": "2026-11-03T09:58:30.189764+00:00",
+  "checkedAt": "2026-11-03T09:59:04.729902+00:00",
+  "lastSuccessAt": "2026-11-03T09:59:04.729902+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
