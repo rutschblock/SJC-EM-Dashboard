@@ -1,19 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-03T17:42:05.164929+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 11 - snow packed spots; 4 - wet; 6 - snow; 7 - slushy to 10 - snow packed; 4 - wet; 6 - snow"
-      }
-    ],
-    "previousSuccessAt": "2026-11-03T09:59:04.729902+00:00"
+    "checkedAt": "2026-11-03T17:44:13.274711+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-03T17:42:05.164929+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-03T17:42:05.164929+00:00",
-  "lastSuccessAt": "2026-11-03T17:42:05.164929+00:00",
+  "checkedAt": "2026-11-03T17:44:13.274711+00:00",
+  "lastSuccessAt": "2026-11-03T17:44:13.274711+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
