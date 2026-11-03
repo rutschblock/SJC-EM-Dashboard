@@ -1,39 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-03T23:12:12.035480+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 10 - snow packed; 4 - wet; 6 - snow to 3 - dry"
-      },
-      {
-        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4s-9 - wet in areas, icy spots to 3 - dry"
-      },
-      {
-        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4s-9 - wet in areas, icy spots to 3 - dry"
-      },
-      {
-        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 9-11 icy spots, snow packed spots to 3 - dry"
-      },
-      {
-        "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4s - wet in areas to 3 - dry"
-      }
-    ],
-    "previousSuccessAt": "2026-11-03T17:44:13.274711+00:00"
+    "checkedAt": "2026-11-03T23:13:38.985270+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-03T23:12:12.035480+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-03T23:12:12.035480+00:00",
-  "lastSuccessAt": "2026-11-03T23:12:12.035480+00:00",
+  "checkedAt": "2026-11-03T23:13:38.985270+00:00",
+  "lastSuccessAt": "2026-11-03T23:13:38.985270+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
