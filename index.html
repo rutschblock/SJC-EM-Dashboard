@@ -675,8 +675,16 @@ setInterval(refreshDssFreshness,5*60*1000);
   for(const line of details)if(line)row(c,'p',line,line.startsWith('Source update:')?'meta':null);
   el.append(c);
  }
- async function query(endpoint,where){
+ async function query(endpoint,where,spatial=false){
   const params=new URLSearchParams({where,outFields:'*',returnGeometry:'false',f:'json',resultRecordCount:'1000',_t:String(Date.now())});
+  if(spatial){
+   // ArcGIS spatial intersection includes a closure line that ENTERS the corridor
+   // even when its starting latitude/longitude is outside the box.
+   params.set('geometry',JSON.stringify({xmin:-108.13,ymin:37.18,xmax:-107.35,ymax:38.14,spatialReference:{wkid:4326}}));
+   params.set('geometryType','esriGeometryEnvelope');
+   params.set('inSR','4326');
+   params.set('spatialRel','esriSpatialRelIntersects');
+  }
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),16000);
   try{
    const resp=await fetch(endpoint+'?'+params,{signal:ctrl.signal,cache:'no-store'});
@@ -688,12 +696,11 @@ setInterval(refreshDssFreshness,5*60*1000);
   }finally{clearTimeout(timer)}
  }
  function corridorAlert(a){
-  const road=String(a.roadname||a.roadid||'');
-  if(!/\b(?:US\s*[- ]?550|550)\b/i.test(road))return false;
-  const lat=Number(a.startlatitude),lon=Number(a.startlongitude);
-  if(Number.isFinite(lat)&&Number.isFinite(lon)&&lat!==0&&lon!==0)return lat>=37.18&&lat<=38.14&&lon>=-108.13&&lon<=-107.35;
-  const mile=Number.parseFloat(a.startmilemarker),end=Number.parseFloat(a.endmilemarker);
-  return [mile,end].some(v=>Number.isFinite(v)&&v>=25&&v<=105);
+  // Spatial query already limits records to the corridor. Route-name formats vary.
+  const road=[a.roadname,a.roadid].filter(Boolean).join(' ');
+  const fallback=[a.title,a.headline,a.locationdescription].filter(Boolean).join(' ');
+  const route=road||fallback;
+  return /(?:^|\W)(?:US\s*[- ]?550|HIGHWAY\s*550|HWY\s*550|550)(?=\W|$)/i.test(route);
  }
  function closure(a){
   const x=String(a.roadwayclosure||'').toLowerCase().trim();
@@ -702,13 +709,13 @@ setInterval(refreshDssFreshness,5*60*1000);
  async function alerts(){
   aStatus.textContent='Checking public CDOT road-alert data…';aList.replaceChildren();
   try{
-   const data=await query(alertUrl,"roadname LIKE '%550%'");
+   const data=await query(alertUrl,'1=1',true);
    const matching=data.features.filter(corridorAlert);
    const unique=new Map();
    for(const x of matching)unique.set(x.alertid||x.objectid||JSON.stringify(x),x);
    const items=[...unique.values()].sort((a,b)=>Number(closure(b))-Number(closure(a))||(Number(b.lastupdateddate)||0)-(Number(a.lastupdateddate)||0));
-   aStatus.textContent='CDOT alert search checked: '+when(Date.now())+' · '+items.length+' matching corridor alert(s)'+(data.truncated?' · RESULTS MAY BE INCOMPLETE':'')+'. No alerts does NOT mean open.';
-   if(!items.length)card(aList,'No matching US 550 alerts returned',['No verified corridor clearance or open status. Confirm on COtrip.'],false);
+   aStatus.textContent='CDOT alert spatial search checked: '+when(Date.now())+' · '+data.features.length+' nearby alert(s) returned; '+items.length+' matched US 550'+(data.truncated?' · RESULTS MAY BE INCOMPLETE':'')+'. No alerts does NOT mean open.';
+   if(!items.length)card(aList,'No US 550 alert records matched',['Spatial query returned '+data.features.length+' nearby alert(s), but none identified US 550. This does not confirm an open highway. Compare with COtrip.'],false);
    for(const a of items){
     const closed=closure(a);
     const label=(closed?'CLOSURE FLAG REPORTED · ':'CDOT ALERT · ')+(a.title||a.headline||a.type||'US 550');
