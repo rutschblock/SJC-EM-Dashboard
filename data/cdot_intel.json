@@ -1,16 +1,14 @@
 {
   "alerts": {
-    "attemptedAt": "2026-11-04T11:29:44Z",
-    "checkedAt": "2026-11-03T23:13:41Z",
-    "error": "Connection to CDOTESPRDS01.DOT.STATE.CO.US:9876 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.",
+    "checkedAt": "2026-11-04T18:50:32Z",
+    "error": null,
     "features": [],
-    "status": "error",
+    "status": "ok",
     "truncated": false
   },
   "weather": {
-    "attemptedAt": "2026-11-04T11:29:44Z",
-    "checkedAt": "2026-11-03T23:13:41Z",
-    "error": "Connection to CDOTESPRDS01.DOT.STATE.CO.US:9876 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.",
+    "checkedAt": "2026-11-04T18:50:32Z",
+    "error": null,
     "features": [
       {
         "created_date": 1574305768000,
@@ -178,7 +176,7 @@
         "ws_windgustdiricon": "/images/directionArrows/wnd_dir_arrw_fr_s_7x8.gif"
       }
     ],
-    "status": "error",
+    "status": "ok",
     "truncated": false
   }
 }
