@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-05T00:18:16.130350+00:00",
+    "checkedAt": "2026-11-05T07:16:58.582180+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-11-05T00:18:01.073435+00:00"
+    "previousSuccessAt": "2026-11-05T00:18:16.130350+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-05T00:18:16.130350+00:00",
-  "lastSuccessAt": "2026-11-05T00:18:16.130350+00:00",
+  "checkedAt": "2026-11-05T07:16:58.582180+00:00",
+  "lastSuccessAt": "2026-11-05T07:16:58.582180+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -62,10 +62,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 24 mph are expected.",
-          "updateTime": 1793834194718,
-          "confirmationTime": 1793834194718,
-          "endTime": 1793855794718
+          "additionalData": "Partly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 13 mph are expected.",
+          "updateTime": 1793860320343,
+          "confirmationTime": 1793860320343,
+          "endTime": 1793881920343
         }
       ]
     },
@@ -96,10 +96,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 14 mph are expected.",
-          "updateTime": 1793834194718,
-          "confirmationTime": 1793834194718,
-          "endTime": 1793855794718
+          "additionalData": "Partly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 14 mph are expected.",
+          "updateTime": 1793860320343,
+          "confirmationTime": 1793860320343,
+          "endTime": 1793881920343
         }
       ]
     },
@@ -130,10 +130,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 14 mph are expected.",
-          "updateTime": 1793834194718,
-          "confirmationTime": 1793834194718,
-          "endTime": 1793855794718
+          "additionalData": "Partly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 14 mph are expected.",
+          "updateTime": 1793860320343,
+          "confirmationTime": 1793860320343,
+          "endTime": 1793881920343
         }
       ]
     },
@@ -145,6 +145,14 @@
       "primaryMP": 74.88257952888567,
       "secondaryMP": 98.118708545585,
       "currentConditions": [
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Mostly cloudy. Expect up to 0.5 inches of new snow accumulation. Wind gusts of up to 13 mph are expected.",
+          "updateTime": 1793860320343,
+          "confirmationTime": 1793860320343,
+          "endTime": 1793881920343
+        },
         {
           "conditionDescription": "4 - wet",
           "sourceType": "OPERATOR",
@@ -160,14 +168,6 @@
           "updateTime": 1793836609902,
           "confirmationTime": 1793836609902,
           "endTime": 4947436609902
-        },
-        {
-          "conditionDescription": "forecast text included",
-          "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to 1 inches of new snow accumulation. Wind gusts of up to 18 mph are expected.",
-          "updateTime": 1793834194718,
-          "confirmationTime": 1793834194718,
-          "endTime": 1793855794718
         }
       ]
     },
@@ -198,10 +198,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1793834194718,
-          "confirmationTime": 1793834194718,
-          "endTime": 1793855794718
+          "additionalData": "Areas of Fog. Wind gusts of up to 3 mph are expected.",
+          "updateTime": 1793860320343,
+          "confirmationTime": 1793860320343,
+          "endTime": 1793881920343
         }
       ]
     }
