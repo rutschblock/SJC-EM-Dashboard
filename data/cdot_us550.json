@@ -1,19 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-06T02:13:04.007459+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4s - wet in areas; 7 - slushy; 9 - icy spots to 3 - dry"
-      }
-    ],
-    "previousSuccessAt": "2026-11-05T21:55:49.970287+00:00"
+    "checkedAt": "2026-11-06T02:16:52.688247+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-06T02:13:04.007459+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-06T02:13:04.007459+00:00",
-  "lastSuccessAt": "2026-11-06T02:13:04.007459+00:00",
+  "checkedAt": "2026-11-06T02:16:52.688247+00:00",
+  "lastSuccessAt": "2026-11-06T02:16:52.688247+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -61,9 +55,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Mostly cloudy. Wind gusts of up to 9 mph are expected.",
-          "updateTime": 1793927486340,
-          "confirmationTime": 1793927486340,
-          "endTime": 1793949086340
+          "updateTime": 1793931211104,
+          "confirmationTime": 1793931211104,
+          "endTime": 1793952811104
         }
       ]
     },
@@ -87,9 +81,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Mostly cloudy. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1793927486340,
-          "confirmationTime": 1793927486340,
-          "endTime": 1793949086340
+          "updateTime": 1793931211104,
+          "confirmationTime": 1793931211104,
+          "endTime": 1793952811104
         }
       ]
     },
@@ -113,9 +107,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Mostly cloudy. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1793927486340,
-          "confirmationTime": 1793927486340,
-          "endTime": 1793949086340
+          "updateTime": 1793931211104,
+          "confirmationTime": 1793931211104,
+          "endTime": 1793952811104
         }
       ]
     },
@@ -131,9 +125,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Mostly cloudy. Wind gusts of up to 18 mph are expected.",
-          "updateTime": 1793927486340,
-          "confirmationTime": 1793927486340,
-          "endTime": 1793949086340
+          "updateTime": 1793931211104,
+          "confirmationTime": 1793931211104,
+          "endTime": 1793952811104
         },
         {
           "conditionDescription": "3 - dry",
@@ -164,10 +158,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 11 mph are expected.",
-          "updateTime": 1793927486340,
-          "confirmationTime": 1793927486340,
-          "endTime": 1793949086340
+          "additionalData": "Overcast skies. Wind gusts of up to 11 mph are expected.",
+          "updateTime": 1793931211104,
+          "confirmationTime": 1793931211104,
+          "endTime": 1793952811104
         }
       ]
     }
