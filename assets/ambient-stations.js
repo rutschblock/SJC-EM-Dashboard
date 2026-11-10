@@ -11,7 +11,7 @@
   const cell=(tr,value,klass='')=>{const td=document.createElement('td');td.textContent=value; if(klass)td.className=klass;tr.appendChild(td);return td;};
   const numeric=(value,digits=0,suffix='')=>Number.isFinite(Number(value))&&value!==null&&value!==''?Number(value).toFixed(digits)+suffix:'—';
   const age=(time)=>{const stamp=Date.parse(time||'');return Number.isFinite(stamp)?Date.now()-stamp:Infinity;};
-  const localTime=(time)=>{const d=new Date(time);return Number.isFinite(d.getTime())?d.toLocaleString('en-US',{timeZone:'America/Denver',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}):'Unknown';};
+  const localTime=(time)=>{const d=time?new Date(time):new Date(NaN);return Number.isFinite(d.getTime())?d.toLocaleString('en-US',{timeZone:'America/Denver',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}):'Unknown';};
   const chip=(tr,status)=>{const td=document.createElement('td');const s=document.createElement('span');s.className='ambient-chip '+(status==='Current'?'':status==='Stale'?'stale':'unavailable');s.textContent=status;td.appendChild(s);tr.appendChild(td);};
   async function load(){
     refresh.disabled=true;state.className='ambient-status';state.textContent='Checking Ambient Weather station observations…';
