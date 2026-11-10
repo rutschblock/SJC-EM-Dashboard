@@ -49,5 +49,5 @@
   }
   refresh.addEventListener('click',load);
   load();
-  setInterval(()=>{if(!document.hidden)load();},5*60*1000);
+  setInterval(()=>{if(!document.hidden)load();},60*60*1000);
 })();
