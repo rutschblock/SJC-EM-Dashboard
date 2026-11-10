@@ -2,7 +2,7 @@
 name: Refresh authorized Ambient Weather stations
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
