@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-10T10:58:08.782241+00:00",
+    "checkedAt": "2026-11-10T11:41:11.266316+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-11-10T03:27:05.066140+00:00"
+    "previousSuccessAt": "2026-11-10T10:58:08.782241+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-10T10:58:08.782241+00:00",
-  "lastSuccessAt": "2026-11-10T10:58:08.782241+00:00",
+  "checkedAt": "2026-11-10T11:41:11.266316+00:00",
+  "lastSuccessAt": "2026-11-10T11:41:11.266316+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -47,9 +47,9 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794290885851,
-          "confirmationTime": 1794290885851,
-          "endTime": 4947890885851
+          "updateTime": 1794308793893,
+          "confirmationTime": 1794308793893,
+          "endTime": 4947908793893
         },
         {
           "conditionDescription": "forecast text included",
@@ -73,9 +73,9 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794290885851,
-          "confirmationTime": 1794290885851,
-          "endTime": 4947890885851
+          "updateTime": 1794308793893,
+          "confirmationTime": 1794308793893,
+          "endTime": 4947908793893
         },
         {
           "conditionDescription": "forecast text included",
@@ -99,9 +99,9 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794290885851,
-          "confirmationTime": 1794290885851,
-          "endTime": 4947890885851
+          "updateTime": 1794308793893,
+          "confirmationTime": 1794308793893,
+          "endTime": 4947908793893
         },
         {
           "conditionDescription": "forecast text included",
@@ -122,20 +122,20 @@
       "secondaryMP": 98.118708545585,
       "currentConditions": [
         {
-          "conditionDescription": "3 - dry",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1794290885851,
-          "confirmationTime": 1794290885851,
-          "endTime": 4947890885851
-        },
-        {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Partly cloudy. Wind gusts of up to 10 mph are expected.",
           "updateTime": 1794308023985,
           "confirmationTime": 1794308023985,
           "endTime": 1794329623985
+        },
+        {
+          "conditionDescription": "3 - dry",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1794308793893,
+          "confirmationTime": 1794308793893,
+          "endTime": 4947908793893
         }
       ]
     },
@@ -151,9 +151,9 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794290885851,
-          "confirmationTime": 1794290885851,
-          "endTime": 4947890885851
+          "updateTime": 1794308793893,
+          "confirmationTime": 1794308793893,
+          "endTime": 4947908793893
         },
         {
           "conditionDescription": "forecast text included",
