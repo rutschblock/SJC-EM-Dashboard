@@ -13,8 +13,17 @@ This dashboard contains a weather station table in **2. Weather Conditions & For
    - `AMBIENT_APPLICATION_KEY`: application credential.
    - `AMBIENT_API_KEYS`: one or more owner API keys, comma-separated.
    - `AMBIENT_STATION_NAMES`: JSON object with **authorized station MACs** as keys and approved **public display labels** as values, e.g. `{"AA:BB:CC:DD:EE:FF":"Silverton – Public Station"}` (example MAC only).
-4. Run GitHub Actions → **Refresh authorized Ambient Weather stations** → **Run workflow** after merging. The scheduled task polls approximately every 15 minutes, subject to GitHub scheduling delay.
+4. Run GitHub Actions → **Refresh authorized Ambient Weather stations** → **Run workflow** after merging. The scheduled task polls approximately every hour, subject to GitHub scheduling delay.
 5. Confirm the dashboard shows observation timestamps and the station reports as **Current** only if its latest observation is 30 minutes old or less.
+
+## Public Ambient Weather stations — access policy
+
+Ambient's community website permits manual viewing of public stations, but the published Nielsen-Kellerman terms prohibit ongoing automated scraping without prior written permission. Do **not** attempt to harvest public map data, undocumented endpoints or browser session payloads for this dashboard.
+
+The hourly GitHub workflow is an authorized API integration only. To access public stations automatically, obtain written permission and an approved access method from Ambient Weather, or obtain participating station-owner API keys. Until then, the dashboard shows a transparent unconfigured state and links to the public map for manual review.
+
+Source terms: https://ambientweather.com/terms (Content — Limitations on Use).
+Official API: https://github.com/ambient-weather/api-docs/blob/master/apiary.apib
 
 ## Published fields
 
