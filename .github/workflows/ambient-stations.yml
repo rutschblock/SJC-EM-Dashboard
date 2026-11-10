@@ -1,0 +1,31 @@
+
+name: Refresh authorized Ambient Weather stations
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ambient-stations-feed
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch authorized stations into sanitized public snapshot
+        env:
+          AMBIENT_APPLICATION_KEY: ${{ secrets.AMBIENT_APPLICATION_KEY }}
+          AMBIENT_API_KEYS: ${{ secrets.AMBIENT_API_KEYS }}
+          AMBIENT_STATION_NAMES: ${{ secrets.AMBIENT_STATION_NAMES }}
+        run: python3 scripts/update_ambient_stations.py
+      - name: Publish observations only if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ambient_stations.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update authorized Ambient Weather observations"
+            git push
+          fi
