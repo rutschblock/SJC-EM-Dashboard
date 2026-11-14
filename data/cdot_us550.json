@@ -1,19 +1,29 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-14T16:03:38.880253+00:00",
+    "checkedAt": "2026-11-14T20:35:16.577451+00:00",
     "changes": [
       {
-        "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
+        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
         "type": "report_changed",
-        "detail": "Operator report changed from 6 - snow to 4s-9 - wet in areas, icy spots"
+        "detail": "Operator report changed from 6-8-10 snow, icy, snow packed to 6 - snow; 8-10 icy, snow packed"
+      },
+      {
+        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
+        "type": "report_changed",
+        "detail": "Operator report changed from 6-8-10 snow, icy, snow packed to 6 - snow; 8-10 icy, snow packed"
+      },
+      {
+        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
+        "type": "report_changed",
+        "detail": "Operator report changed from 9-11 icy spots, snow packed spots to 4 - wet; 7 - slushy"
       }
     ],
-    "previousSuccessAt": "2026-11-14T15:43:06.323764+00:00"
+    "previousSuccessAt": "2026-11-14T16:03:38.880253+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-14T16:03:38.880253+00:00",
-  "lastSuccessAt": "2026-11-14T16:03:38.880253+00:00",
+  "checkedAt": "2026-11-14T20:35:16.577451+00:00",
+  "lastSuccessAt": "2026-11-14T20:35:16.577451+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -53,17 +63,17 @@
           "conditionDescription": "9-11 icy spots, snow packed spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794671334647,
-          "confirmationTime": 1794671334647,
-          "endTime": 4948271334647
+          "updateTime": 1794678384323,
+          "confirmationTime": 1794678384323,
+          "endTime": 4948278384323
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Chance of Light Rain Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 17 mph are expected.",
-          "updateTime": 1794670280685,
-          "confirmationTime": 1794670280685,
-          "endTime": 1794691880685
+          "additionalData": "Mostly cloudy. Wind gusts of up to 19 mph are expected.",
+          "updateTime": 1794685265156,
+          "confirmationTime": 1794685265156,
+          "endTime": 1794706865156
         }
       ]
     },
@@ -76,20 +86,28 @@
       "secondaryMP": 65.88309991558688,
       "currentConditions": [
         {
-          "conditionDescription": "6-8-10 snow, icy, snow packed",
+          "conditionDescription": "8-10 icy, snow packed",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794671341719,
-          "confirmationTime": 1794671341719,
-          "endTime": 4948271341719
+          "updateTime": 1794678642128,
+          "confirmationTime": 1794678642128,
+          "endTime": 4948278642128
+        },
+        {
+          "conditionDescription": "6 - snow",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1794678642128,
+          "confirmationTime": 1794678642128,
+          "endTime": 4948278642128
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Slight chance of Thunderstorms. Expect up to 3.5 inches of new snow accumulation. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1794670280685,
-          "confirmationTime": 1794670280685,
-          "endTime": 1794691880685
+          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1794685265156,
+          "confirmationTime": 1794685265156,
+          "endTime": 1794706865156
         }
       ]
     },
@@ -102,20 +120,28 @@
       "secondaryMP": 74.88257952888567,
       "currentConditions": [
         {
-          "conditionDescription": "6-8-10 snow, icy, snow packed",
+          "conditionDescription": "8-10 icy, snow packed",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794671341719,
-          "confirmationTime": 1794671341719,
-          "endTime": 4948271341719
+          "updateTime": 1794678642128,
+          "confirmationTime": 1794678642128,
+          "endTime": 4948278642128
+        },
+        {
+          "conditionDescription": "6 - snow",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1794678642128,
+          "confirmationTime": 1794678642128,
+          "endTime": 4948278642128
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Slight chance of Thunderstorms. Expect up to 2.5 inches of new snow accumulation. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1794670280685,
-          "confirmationTime": 1794670280685,
-          "endTime": 1794691880685
+          "additionalData": "Overcast skies. Expect up to a trace of new snow accumulation. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1794685265156,
+          "confirmationTime": 1794685265156,
+          "endTime": 1794706865156
         }
       ]
     },
@@ -128,20 +154,28 @@
       "secondaryMP": 98.118708545585,
       "currentConditions": [
         {
-          "conditionDescription": "forecast text included",
-          "sourceType": "NDFD",
-          "additionalData": "Likelihood of Light Snow Showers. Slight chance of Thunderstorms. Expect up to 2.5 inches of new snow accumulation. Wind gusts of up to 15 mph are expected.",
-          "updateTime": 1794670280685,
-          "confirmationTime": 1794670280685,
-          "endTime": 1794691880685
-        },
-        {
-          "conditionDescription": "9-11 icy spots, snow packed spots",
+          "conditionDescription": "4 - wet",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794671334647,
-          "confirmationTime": 1794671334647,
-          "endTime": 4948271334647
+          "updateTime": 1794678370171,
+          "confirmationTime": 1794678370171,
+          "endTime": 4948278370171
+        },
+        {
+          "conditionDescription": "7 - slushy",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1794678370171,
+          "confirmationTime": 1794678370171,
+          "endTime": 4948278370171
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Chance of Light Snow Showers. Expect up to 0.5 inches of new snow accumulation. Wind gusts of up to 15 mph are expected.",
+          "updateTime": 1794685265156,
+          "confirmationTime": 1794685265156,
+          "endTime": 1794706865156
         }
       ]
     },
@@ -157,17 +191,17 @@
           "conditionDescription": "4s-9 - wet in areas, icy spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794671381704,
-          "confirmationTime": 1794671381704,
-          "endTime": 4948271381704
+          "updateTime": 1794678375744,
+          "confirmationTime": 1794678375744,
+          "endTime": 4948278375744
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers. Chance of Light Rain Showers. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1794670280685,
-          "confirmationTime": 1794670280685,
-          "endTime": 1794691880685
+          "additionalData": "Slight chance of Light Snow Showers. Slight chance of Light Rain Showers. Wind gusts of up to 10 mph are expected.",
+          "updateTime": 1794685265156,
+          "confirmationTime": 1794685265156,
+          "endTime": 1794706865156
         }
       ]
     }
