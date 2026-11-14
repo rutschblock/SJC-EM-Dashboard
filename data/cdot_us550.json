@@ -1,19 +1,19 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-14T15:43:06.323764+00:00",
+    "checkedAt": "2026-11-14T16:03:38.880253+00:00",
     "changes": [
       {
         "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
         "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet to 6 - snow"
+        "detail": "Operator report changed from 6 - snow to 4s-9 - wet in areas, icy spots"
       }
     ],
-    "previousSuccessAt": "2026-11-14T09:21:09.824363+00:00"
+    "previousSuccessAt": "2026-11-14T15:43:06.323764+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-14T15:43:06.323764+00:00",
-  "lastSuccessAt": "2026-11-14T15:43:06.323764+00:00",
+  "checkedAt": "2026-11-14T16:03:38.880253+00:00",
+  "lastSuccessAt": "2026-11-14T16:03:38.880253+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -53,9 +53,9 @@
           "conditionDescription": "9-11 icy spots, snow packed spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794642883161,
-          "confirmationTime": 1794660778730,
-          "endTime": 4948260778730
+          "updateTime": 1794671334647,
+          "confirmationTime": 1794671334647,
+          "endTime": 4948271334647
         },
         {
           "conditionDescription": "forecast text included",
@@ -79,9 +79,9 @@
           "conditionDescription": "6-8-10 snow, icy, snow packed",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794642808808,
-          "confirmationTime": 1794660778730,
-          "endTime": 4948260778730
+          "updateTime": 1794671341719,
+          "confirmationTime": 1794671341719,
+          "endTime": 4948271341719
         },
         {
           "conditionDescription": "forecast text included",
@@ -105,9 +105,9 @@
           "conditionDescription": "6-8-10 snow, icy, snow packed",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794642802159,
-          "confirmationTime": 1794660778730,
-          "endTime": 4948260778730
+          "updateTime": 1794671341719,
+          "confirmationTime": 1794671341719,
+          "endTime": 4948271341719
         },
         {
           "conditionDescription": "forecast text included",
@@ -139,9 +139,9 @@
           "conditionDescription": "9-11 icy spots, snow packed spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794642889771,
-          "confirmationTime": 1794660778730,
-          "endTime": 4948260778730
+          "updateTime": 1794671334647,
+          "confirmationTime": 1794671334647,
+          "endTime": 4948271334647
         }
       ]
     },
@@ -154,12 +154,12 @@
       "secondaryMP": 130.2166222300553,
       "currentConditions": [
         {
-          "conditionDescription": "6 - snow",
+          "conditionDescription": "4s-9 - wet in areas, icy spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794660770665,
-          "confirmationTime": 1794660770665,
-          "endTime": 4948260770665
+          "updateTime": 1794671381704,
+          "confirmationTime": 1794671381704,
+          "endTime": 4948271381704
         },
         {
           "conditionDescription": "forecast text included",
