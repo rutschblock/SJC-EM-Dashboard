@@ -1,13 +1,19 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-14T09:21:09.824363+00:00",
-    "changes": [],
-    "previousSuccessAt": "2026-11-14T08:52:09.299409+00:00"
+    "checkedAt": "2026-11-14T15:43:06.323764+00:00",
+    "changes": [
+      {
+        "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
+        "type": "report_changed",
+        "detail": "Operator report changed from 4 - wet to 6 - snow"
+      }
+    ],
+    "previousSuccessAt": "2026-11-14T09:21:09.824363+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-14T09:21:09.824363+00:00",
-  "lastSuccessAt": "2026-11-14T09:21:09.824363+00:00",
+  "checkedAt": "2026-11-14T15:43:06.323764+00:00",
+  "lastSuccessAt": "2026-11-14T15:43:06.323764+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -48,16 +54,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1794642883161,
-          "confirmationTime": 1794642883161,
-          "endTime": 4948242883161
+          "confirmationTime": 1794660778730,
+          "endTime": 4948260778730
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Expect Light Snow Showers. Expect Light Rain Showers. Expect up to 3 inches of new snow accumulation. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1794647853954,
-          "confirmationTime": 1794647853954,
-          "endTime": 1794669453954
+          "additionalData": "Chance of Light Snow Showers. Chance of Light Rain Showers. Expect up to 1.5 inches of new snow accumulation. Wind gusts of up to 17 mph are expected.",
+          "updateTime": 1794670280685,
+          "confirmationTime": 1794670280685,
+          "endTime": 1794691880685
         }
       ]
     },
@@ -74,16 +80,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1794642808808,
-          "confirmationTime": 1794642808808,
-          "endTime": 4948242808808
+          "confirmationTime": 1794660778730,
+          "endTime": 4948260778730
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Expect Moderate Snow Showers. Expect up to 5 inches of new snow accumulation. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1794647853954,
-          "confirmationTime": 1794647853954,
-          "endTime": 1794669453954
+          "additionalData": "Chance of Light Snow Showers. Slight chance of Thunderstorms. Expect up to 3.5 inches of new snow accumulation. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1794670280685,
+          "confirmationTime": 1794670280685,
+          "endTime": 1794691880685
         }
       ]
     },
@@ -100,16 +106,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1794642802159,
-          "confirmationTime": 1794642802159,
-          "endTime": 4948242802159
+          "confirmationTime": 1794660778730,
+          "endTime": 4948260778730
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Expect Light Snow Showers. Expect up to 3.5 inches of new snow accumulation. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1794647853954,
-          "confirmationTime": 1794647853954,
-          "endTime": 1794669453954
+          "additionalData": "Chance of Light Snow Showers. Slight chance of Thunderstorms. Expect up to 2.5 inches of new snow accumulation. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1794670280685,
+          "confirmationTime": 1794670280685,
+          "endTime": 1794691880685
         }
       ]
     },
@@ -124,18 +130,18 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Likelihood of Light Snow Showers. Expect up to 2.5 inches of new snow accumulation. Wind gusts of up to 18 mph are expected.",
-          "updateTime": 1794647853954,
-          "confirmationTime": 1794647853954,
-          "endTime": 1794669453954
+          "additionalData": "Likelihood of Light Snow Showers. Slight chance of Thunderstorms. Expect up to 2.5 inches of new snow accumulation. Wind gusts of up to 15 mph are expected.",
+          "updateTime": 1794670280685,
+          "confirmationTime": 1794670280685,
+          "endTime": 1794691880685
         },
         {
           "conditionDescription": "9-11 icy spots, snow packed spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1794642889771,
-          "confirmationTime": 1794642889771,
-          "endTime": 4948242889771
+          "confirmationTime": 1794660778730,
+          "endTime": 4948260778730
         }
       ]
     },
@@ -148,20 +154,20 @@
       "secondaryMP": 130.2166222300553,
       "currentConditions": [
         {
-          "conditionDescription": "4 - wet",
+          "conditionDescription": "6 - snow",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794642906235,
-          "confirmationTime": 1794642906235,
-          "endTime": 4948242906235
+          "updateTime": 1794660770665,
+          "confirmationTime": 1794660770665,
+          "endTime": 4948260770665
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Chance of Light Snow Showers.  Likelihood of Light Rain Showers. Wind gusts of up to 9 mph are expected.",
-          "updateTime": 1794647853954,
-          "confirmationTime": 1794647853954,
-          "endTime": 1794669453954
+          "additionalData": "Chance of Light Snow Showers. Chance of Light Rain Showers. Wind gusts of up to 10 mph are expected.",
+          "updateTime": 1794670280685,
+          "confirmationTime": 1794670280685,
+          "endTime": 1794691880685
         }
       ]
     }
