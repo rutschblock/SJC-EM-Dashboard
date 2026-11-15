@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-15T07:03:41.578471+00:00",
+    "checkedAt": "2026-11-15T07:46:34.477396+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-11-15T00:58:39.051691+00:00"
+    "previousSuccessAt": "2026-11-15T07:03:41.578471+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-15T07:03:41.578471+00:00",
-  "lastSuccessAt": "2026-11-15T07:03:41.578471+00:00",
+  "checkedAt": "2026-11-15T07:46:34.477396+00:00",
+  "lastSuccessAt": "2026-11-15T07:46:34.477396+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -55,9 +55,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Patchy Fog. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1794722426666,
-          "confirmationTime": 1794722426666,
-          "endTime": 1794744026666
+          "updateTime": 1794726154129,
+          "confirmationTime": 1794726154129,
+          "endTime": 1794747754129
         }
       ]
     },
@@ -80,10 +80,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Patchy Fog. Wind gusts of up to 11 mph are expected.",
-          "updateTime": 1794722426666,
-          "confirmationTime": 1794722426666,
-          "endTime": 1794744026666
+          "additionalData": "Patchy Fog. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1794726154129,
+          "confirmationTime": 1794726154129,
+          "endTime": 1794747754129
         }
       ]
     },
@@ -96,20 +96,20 @@
       "secondaryMP": 74.88257952888567,
       "currentConditions": [
         {
-          "conditionDescription": "forecast text included",
-          "sourceType": "NDFD",
-          "additionalData": "Patchy Fog. Wind gusts of up to 11 mph are expected.",
-          "updateTime": 1794722426666,
-          "confirmationTime": 1794722426666,
-          "endTime": 1794744026666
-        },
-        {
           "conditionDescription": "4 - wet",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1794701590789,
           "confirmationTime": 1794708553396,
           "endTime": 4948308553396
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Patchy Fog. Wind gusts of up to 11 mph are expected.",
+          "updateTime": 1794726154129,
+          "confirmationTime": 1794726154129,
+          "endTime": 1794747754129
         }
       ]
     },
@@ -124,10 +124,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1794722426666,
-          "confirmationTime": 1794722426666,
-          "endTime": 1794744026666
+          "additionalData": "Partly cloudy. Wind gusts of up to 14 mph are expected.",
+          "updateTime": 1794726154129,
+          "confirmationTime": 1794726154129,
+          "endTime": 1794747754129
         },
         {
           "conditionDescription": "4s-9 - wet in areas, icy spots",
@@ -148,20 +148,20 @@
       "secondaryMP": 130.2166222300553,
       "currentConditions": [
         {
-          "conditionDescription": "forecast text included",
-          "sourceType": "NDFD",
-          "additionalData": "Patchy Fog. Wind gusts of up to 5 mph are expected.",
-          "updateTime": 1794722426666,
-          "confirmationTime": 1794722426666,
-          "endTime": 1794744026666
-        },
-        {
           "conditionDescription": "4 - wet",
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1794701590789,
           "confirmationTime": 1794708553396,
           "endTime": 4948308553396
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Patchy Fog. Wind gusts of up to 5 mph are expected.",
+          "updateTime": 1794726154129,
+          "confirmationTime": 1794726154129,
+          "endTime": 1794747754129
         }
       ]
     }
