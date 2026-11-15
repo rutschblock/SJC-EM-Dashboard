@@ -1,13 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-15T15:36:24.220053+00:00",
+    "checkedAt": "2026-11-15T20:17:00.107661+00:00",
     "changes": [],
-    "previousSuccessAt": "2026-11-15T14:40:14.514567+00:00"
+    "previousSuccessAt": "2026-11-15T15:36:24.220053+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-15T15:36:24.220053+00:00",
-  "lastSuccessAt": "2026-11-15T15:36:24.220053+00:00",
+  "checkedAt": "2026-11-15T20:17:00.107661+00:00",
+  "lastSuccessAt": "2026-11-15T20:17:00.107661+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -47,17 +47,17 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794747127052,
-          "confirmationTime": 1794751006939,
-          "endTime": 4948351006939
+          "updateTime": 1794766293280,
+          "confirmationTime": 1794766293280,
+          "endTime": 4948366293280
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly clear. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1794756050990,
-          "confirmationTime": 1794756050990,
-          "endTime": 1794777650990
+          "additionalData": "Partly cloudy. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1794770948553,
+          "confirmationTime": 1794770948553,
+          "endTime": 1794792548553
         }
       ]
     },
@@ -73,17 +73,17 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794747127052,
-          "confirmationTime": 1794751006939,
-          "endTime": 4948351006939
+          "updateTime": 1794766293280,
+          "confirmationTime": 1794766293280,
+          "endTime": 4948366293280
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly clear. Wind gusts of up to 11 mph are expected.",
-          "updateTime": 1794756050990,
-          "confirmationTime": 1794756050990,
-          "endTime": 1794777650990
+          "additionalData": "Patchy Fog. Wind gusts of up to 7 mph are expected.",
+          "updateTime": 1794770948553,
+          "confirmationTime": 1794770948553,
+          "endTime": 1794792548553
         }
       ]
     },
@@ -99,17 +99,17 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794747127052,
-          "confirmationTime": 1794751006939,
-          "endTime": 4948351006939
+          "updateTime": 1794766293280,
+          "confirmationTime": 1794766293280,
+          "endTime": 4948366293280
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly clear. Wind gusts of up to 9 mph are expected.",
-          "updateTime": 1794756050990,
-          "confirmationTime": 1794756050990,
-          "endTime": 1794777650990
+          "additionalData": "Patchy Fog. Wind gusts of up to 6 mph are expected.",
+          "updateTime": 1794770948553,
+          "confirmationTime": 1794770948553,
+          "endTime": 1794792548553
         }
       ]
     },
@@ -122,20 +122,20 @@
       "secondaryMP": 98.118708545585,
       "currentConditions": [
         {
-          "conditionDescription": "forecast text included",
-          "sourceType": "NDFD",
-          "additionalData": "Mostly clear. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1794756050990,
-          "confirmationTime": 1794756050990,
-          "endTime": 1794777650990
-        },
-        {
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794747127052,
-          "confirmationTime": 1794751006939,
-          "endTime": 4948351006939
+          "updateTime": 1794766293280,
+          "confirmationTime": 1794766293280,
+          "endTime": 4948366293280
+        },
+        {
+          "conditionDescription": "forecast text included",
+          "sourceType": "NDFD",
+          "additionalData": "Partly cloudy. Wind gusts of up to 7 mph are expected.",
+          "updateTime": 1794770948553,
+          "confirmationTime": 1794770948553,
+          "endTime": 1794792548553
         }
       ]
     },
@@ -151,17 +151,17 @@
           "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1794747127052,
-          "confirmationTime": 1794751006939,
-          "endTime": 4948351006939
+          "updateTime": 1794766293280,
+          "confirmationTime": 1794766293280,
+          "endTime": 4948366293280
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly clear. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1794756050990,
-          "confirmationTime": 1794756050990,
-          "endTime": 1794777650990
+          "additionalData": "Partly cloudy. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1794770948553,
+          "confirmationTime": 1794770948553,
+          "endTime": 1794792548553
         }
       ]
     }
