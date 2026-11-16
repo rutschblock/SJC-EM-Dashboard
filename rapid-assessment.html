@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SJC EM - Rapid Assessment Beta</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1d3446;background:#f4f7fa}
+*{box-sizing:border-box}body{margin:0}header{background:white;border-bottom:3px solid #173e5f;padding:20px max(16px,calc((100vw - 1020px)/2))}
+main{max-width:1020px;margin:20px auto;padding:0 16px}h1{font-size:27px;color:#163d5c;margin:5px 0}h2{font-size:19px;color:#163d5c;margin:0 0 12px}
+section{background:white;border:1px solid #d8e1e9;padding:18px;border-radius:12px;margin-bottom:16px}
+p{line-height:1.45}.small{font-size:13px;color:#586d7d}.hint{font-size:12px;color:#5d6f7d;margin:5px 0 12px}.badge{font-size:11px;padding:4px 8px;background:#e7eef5;border-radius:6px}
+label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}
+input[type=text],textarea,select{font:inherit;color:inherit;width:100%;border:1px solid #a9bdcc;padding:10px;border-radius:7px;background:white}textarea{min-height:80px;resize:vertical}
+button{font:inherit;font-size:13px;font-weight:700;border:0;border-radius:7px;background:#165b95;color:white;padding:10px 13px;cursor:pointer}
+button.alt{background:#eaf2f8;color:#174b71;border:1px solid #cfdae5}.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;align-items:center}
+.line{border-top:1px solid #e1e7ee;padding:10px 0;display:flex;gap:12px;align-items:center}.line input{width:18px;height:18px}
+.line .grow{flex:1}.line strong{font-size:14px}.line small{display:block;font-size:12px;color:#667785}
+.panel{background:#f6f9fb;border:1px solid #d8e1e9;border-radius:9px;padding:14px;margin:12px 0}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+details.action{border-top:1px solid #dce4eb;padding:11px 0}details.action summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:8px;align-items:center}details.action summary strong{flex:1}
+.tag{border-radius:14px;background:#eaf1f8;color:#264d6a;padding:4px 8px;font-size:12px}
+.notice{border-left:3px solid #8e9fad;padding:10px;background:#f5f8fb;font-size:12px;color:#526577}
+[hidden]{display:none!important}a{color:#165b95}footer{max-width:1020px;margin:20px auto;padding:0 16px 30px;font-size:12px;color:#607284}
+@media(max-width:620px){.columns{grid-template-columns:1fr}.line{align-items:start}}
+</style></head>
+<body><header><span class="badge">BETA — SEPARATE TEST PAGE</span><h1>San Juan County EM</h1><div class="small">Rapid Incident Assessment · Describe → Assess → Act</div>
+<p class="small"><a href="./index.html">Back to operational dashboard</a> — Existing dashboard is unchanged.</p></header>
+<main>
+<section><h2>1. Describe incident</h2><label for="incident">What's happening?</label><textarea id="incident" maxlength="1200"></textarea>
+<p class="hint">What happened, who is affected, and which essential services are disrupted?</p>
+<div class="bar"><button id="assess">Assess incident</button><button id="example" class="alt">Try winter storm example</button><button id="reset" class="alt">Reset beta</button></div></section>
+<section id="review" hidden><h2>2. Review lifeline impacts</h2><p class="small">Directly mentioned impacts start selected; possible cascading impacts are optional. Verify before acting.</p>
+<div id="lifelines"></div><button id="others" class="alt">Show other lifelines</button>
+<p class="hint" id="count"></p><p class="notice">These are review prompts, not verified impacts. Nothing changes the operational dashboard or existing lifeline colors.</p></section>
+<section><div class="bar" style="justify-content:space-between;margin:0 0 10px"><h2 style="margin:0">3. Operational Priorities &amp; Actions</h2><button id="manual" class="alt">+ Other action</button></div>
+<p class="small" id="summary">No actions assigned.</p>
+<div id="formPanel" class="panel" hidden><h3 id="formHeading">New action</h3><form id="newAction">
+<label for="problem">Problem</label><input id="problem" type="text" maxlength="180" required><p class="hint">What is disrupted or needs attention?</p>
+<label for="task">Action</label><textarea id="task" maxlength="700" required></textarea><p class="hint">What needs to happen, why does it matter, and what does success look like? (Task · Purpose · End State)</p>
+<div class="columns"><div><label for="owner">Assigned to</label><input id="owner" type="text" maxlength="100" required><p class="hint">Who is responsible for the next action?</p></div><div><label for="priority">Priority</label><select id="priority"><option>Critical</option><option selected>High</option><option>Routine</option></select></div></div>
+<div class="bar"><button type="submit">Save action</button><button id="cancel" class="alt" type="button">Cancel</button></div>
+</form></div><div id="actionList"></div>
+<div class="bar"><button id="showAll" class="alt" hidden>Show all</button><button id="copy" class="alt" hidden>Copy brief</button></div>
+</section></main>
+<footer>Beta only. Stored in this browser, not shared with other responders. No automatic incident intelligence, no CEPA or spreadsheet connection. Avoid entering sensitive information.</footer>
+<script>
+(()=>{
+const $=id=>document.getElementById(id),names=['Safety and Security','Food, Hydration, Shelter','Health and Medical','Water Systems','Energy','Communications','Transportation','Hazardous Materials'],key='sjc_rapid_assessment_beta_v1';
+const example='Severe winter storm closes US 550 north and south of Silverton, strands travelers, and causes widespread power outages.';
+let state={description:'',selected:[],actions:[],assessed:false},suggestions=[],all=false,showAll=false,from='',editing=null;
+try{const r=JSON.parse(localStorage.getItem(key)||'null');if(r&&Array.isArray(r.selected)&&Array.isArray(r.actions))state=r}catch(e){}
+const save=()=>{try{localStorage.setItem(key,JSON.stringify(state))}catch(e){alert('Unable to save locally')}};
+const node=(tag,txt,cls)=>{const e=document.createElement(tag);e.textContent=txt||'';if(cls)e.className=cls;return e};
+function parse(text){
+ const s=text.toLowerCase(),rows=[];
+ function add(name,why,kind){let r=rows.find(x=>x.name===name);if(!r)rows.push({name,why,kind});else if(kind==='Direct')Object.assign(r,{why,kind})}
+ const road=/\b(road|roads|highway|hwy|us\s*550|pass|passes|closure|closed|bridge)\b/.test(s);
+ const stranded=/\b(strand|strands|stranded|travelers|travellers|shelter|housing|displaced|evacuee)\b/.test(s);
+ const power=/\b(power|electricity|blackout|outage|outages|grid|fuel)\b/.test(s);
+ if(road)add('Transportation','Road access or travel disruption','Direct');
+ if(stranded)add('Food, Hydration, Shelter','Stranded people or shelter needs','Direct');
+ if(power)add('Energy','Electricity or fuel disruption','Direct');
+ if(/\b(hospital|medical|ems|ambulance|patient|injury|injured)\b/.test(s))add('Health and Medical','Medical care or movement','Direct');
+ if(/\b(radio|cellular|communications|dispatch|internet|phone|911)\b/.test(s))add('Communications','Communications interruption','Direct');
+ if(/\b(water|wastewater|sewer|contamination)\b/.test(s))add('Water Systems','Water or wastewater disruption','Direct');
+ if(/\b(hazmat|hazardous|chemical|spill)\b/.test(s))add('Hazardous Materials','Hazardous material concern','Direct');
+ if(/\b(rescue|security|police|law enforcement)\b/.test(s))add('Safety and Security','Public safety concern','Direct');
+ if(road)add('Health and Medical','Check patient transfer access','Possible cascade');
+ if(power){add('Communications','Check dispatch and warning backup power','Possible cascade');add('Water Systems','Check water system backup power','Possible cascade')}
+ if(stranded)add('Safety and Security','Check stranded-traveler safety needs','Possible cascade');
+ return rows.sort((a,b)=>(a.kind==='Direct'?0:1)-(b.kind==='Direct'?0:1)||names.indexOf(a.name)-names.indexOf(b.name))
+}
+function assess(preserve=false){
+ state.description=$('incident').value.trim();if(!state.description){$('incident').focus();return}
+ suggestions=parse(state.description);if(!preserve)state.selected=suggestions.filter(x=>x.kind==='Direct').map(x=>x.name);
+ state.assessed=true;save();drawLifelines()
+}
+function drawLifelines(){
+ $('review').hidden=!state.assessed;if(!state.assessed)return;
+ const container=$('lifelines');container.replaceChildren();let shown=all?names: suggestions.map(x=>x.name);
+ if(!shown.length)shown=names;
+ for(const name of shown){
+ const r=suggestions.find(x=>x.name===name),row=node('div','','line'),check=document.createElement('input');check.type='checkbox';check.checked=state.selected.includes(name);
+ check.setAttribute('aria-label','Select '+name);check.addEventListener('change',()=>{state.selected=check.checked?[...state.selected,name]:state.selected.filter(x=>x!==name);save();updateCount()});
+ const info=node('div','','grow');info.append(node('strong',name),node('small',r?(r.kind+': '+r.why):'Manual review'));
+ const add=node('button','+ Action','alt');add.type='button';add.addEventListener('click',()=>openForm(name));
+ row.append(check,info,add);container.append(row)
+ }
+ $('others').textContent=all?'Show suggested only':'Show other lifelines';updateCount()
+}
+function updateCount(){$('count').textContent=state.selected.length+' lifeline(s) selected for review'}
+function openForm(name='',id=null){
+ editing=id;const a=state.actions.find(x=>x.id===id);from=a?.lifeline||name;
+ $('formHeading').textContent=a?'Edit action':'New action'+(name?' · '+name:'');$('problem').value=a?.problem||'';$('task').value=a?.task||'';$('owner').value=a?.owner||'';$('priority').value=a?.priority||'High';$('formPanel').hidden=false;$('formPanel').scrollIntoView({block:'nearest'});$('problem').focus()
+}
+function drawActions(){
+ const list=$('actionList');list.replaceChildren();const ranks={Critical:0,High:1,Routine:2};
+ const arr=[...state.actions].sort((a,b)=>(a.status==='Complete')-(b.status==='Complete')||(ranks[a.priority]??3)-(ranks[b.priority]??3));
+ $('summary').textContent=arr.filter(x=>x.status!=='Complete').length+' active · '+arr.filter(x=>x.status==='Blocked').length+' blocked · '+arr.filter(x=>x.status==='Complete').length+' complete';
+ for(const a of (showAll?arr:arr.slice(0,3))){
+ const details=node('details','','action'),head=node('summary');head.append(node('span',a.priority,'tag'),node('strong',a.problem),node('span',a.status,'tag'));details.append(head);
+ const div=node('div','','detail');div.append(node('p',a.task),node('p','Assigned: '+a.owner+(a.lifeline?' · '+a.lifeline:''),'small'));
+ const label=node('label','Status'),sel=document.createElement('select');for(const v of ['Pending','In Progress','Blocked','Complete']){const op=node('option',v);op.value=v;sel.append(op)}sel.value=a.status;sel.addEventListener('change',()=>{a.status=sel.value;save();drawActions()});label.append(sel);div.append(label);
+ const label2=node('label','Outcome / current result'),t=document.createElement('textarea');t.value=a.outcome||'';t.addEventListener('change',()=>{a.outcome=t.value;save()});div.append(label2,t,node('p','What happened? Was the intended result achieved?','hint'));
+ const edit=node('button','Edit','alt');edit.addEventListener('click',()=>openForm('',a.id));const del=node('button','Remove','alt');del.addEventListener('click',()=>{if(confirm('Remove this action?')){state.actions=state.actions.filter(x=>x.id!==a.id);save();drawActions()}});
+ const bar=node('div','','bar');bar.append(edit,del);div.append(bar);details.append(div);list.append(details)
+ }
+ $('showAll').hidden=arr.length<=3;$('showAll').textContent=showAll?'Show top three':'Show all '+arr.length;
+ $('copy').hidden=!arr.length
+}
+$('incident').value=state.description;$('assess').addEventListener('click',()=>assess());
+$('example').addEventListener('click',()=>{$('incident').value=example;assess()});
+$('others').addEventListener('click',()=>{all=!all;drawLifelines()});
+$('manual').addEventListener('click',()=>openForm());
+$('cancel').addEventListener('click',()=>{$('formPanel').hidden=true;editing=null});
+$('newAction').addEventListener('submit',e=>{e.preventDefault();const entry={problem:$('problem').value.trim(),task:$('task').value.trim(),owner:$('owner').value.trim(),priority:$('priority').value};if(!entry.problem||!entry.task||!entry.owner)return;
+ if(editing){const a=state.actions.find(x=>x.id===editing);if(a)Object.assign(a,entry)}else state.actions.push({...entry,id:String(Date.now()),lifeline:from,status:'Pending',outcome:''});
+ save();$('formPanel').hidden=true;editing=null;drawActions()});
+$('showAll').addEventListener('click',()=>{showAll=!showAll;drawActions()});
+$('copy').addEventListener('click',()=>{const msg='Incident: '+state.description+'\n'+state.actions.map(x=>x.priority+' | '+x.problem+' | '+x.owner+' | '+x.status+'\nAction: '+x.task+'\nOutcome: '+(x.outcome||'Not recorded')).join('\n\n');navigator.clipboard.writeText(msg).then(()=>alert('Brief copied')).catch(()=>alert('Copy unavailable'))});
+$('reset').addEventListener('click',()=>{if(!confirm('Clear this beta test data?'))return;state={description:'',selected:[],actions:[],assessed:false};$('incident').value='';$('review').hidden=true;$('formPanel').hidden=true;save();drawActions()});
+if(state.assessed){suggestions=parse(state.description);drawLifelines()}drawActions();
+})();
+</script></body></html>
