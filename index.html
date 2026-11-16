@@ -60,21 +60,18 @@ footer{color:#526477;font-size:13px;line-height:1.6}.count{font-size:30px;font-w
  .dashboard-group>.compact-details:not([open])>summary.compact-toggle{margin-bottom:-10px}
 }
 .nws-dss-panel{border:2px solid #a74d29;background:#fff9f2;border-radius:10px;padding:14px 17px;margin-bottom:14px}.nws-dss-panel h2{margin-top:0}.nws-dss-primary{display:inline-block;background:#854629;color:#fff!important;padding:11px 16px;border-radius:7px;font-weight:750;text-decoration:none}.nws-dss-primary:hover{background:#63341e}.nws-dss-shortcut{border-left:4px solid #854629;padding:10px 13px;background:#fff9f2;border-radius:6px}.nws-dss-shortcut .meta{display:block;margin-top:4px}.dss-freshness{font-size:14px;padding:9px 12px;margin:8px 0;border-radius:6px;background:#eef4f9;color:#19364d;font-weight:650}.dss-freshness.dss-stale{background:#fff1d9;color:#805010}.dss-freshness.dss-error{background:#fce9e8;color:#8a2b28}.noaa-experimental{display:inline-block;font-size:11px;letter-spacing:.06em;background:#fff1d4;color:#77440c;padding:3px 7px;border-radius:5px;vertical-align:middle}.noaa-river-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:12px 0}.noaa-river-card{border:1px solid #d4e0e8;border-radius:9px;padding:13px;background:#f7fafc;overflow-wrap:anywhere}.noaa-river-card h3{margin:0 0 7px;font-size:17px}.noaa-river-card p{margin:6px 0}.noaa-river-card .meta{font-size:12px}.noaa-river-status-bad{color:#9c3f21;font-weight:650}.noaa-model-layer{border-top:1px solid #ccdae3;margin-top:12px;padding-top:10px}.noaa-model-layer h4{margin:0 0 7px;font-size:14px}.noaa-model-layer input{padding:8px;margin-right:6px}.noaa-model-layer button{font-size:12px;margin:5px 0}.cdot-intel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:10px;margin:12px 0}.cdot-intel-card{background:#f7fafc;border:1px solid #d6e0e8;border-radius:9px;padding:12px;overflow-wrap:anywhere}.cdot-intel-card p{margin:7px 0;font-size:13px}.cdot-intel-card strong{color:#183a57}.cdot-intel-status{font-size:13px;background:#eef4f7;border-radius:7px;padding:9px 11px;margin:9px 0}.cdot-intel-status.warning{background:#fff1e1;color:#824614;font-weight:600}.cdot-intel-card .meta{font-size:12px}.cdot-intel-card .closure{color:#9e2e25;font-weight:750}.site-brand{display:flex;align-items:center;gap:15px;min-width:0}.site-seal{width:96px;height:96px;object-fit:contain;flex:0 0 96px}.site-brand-text{min-width:0}@media(max-width:520px){.site-brand{gap:10px}.site-seal{width:72px;height:72px;flex-basis:72px}.site-brand h1{font-size:clamp(21px,5vw,27px)}header{padding-top:14px;padding-bottom:14px}}
-/* Compact operational action tracker */
-.opa-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:10px 0}
+/* Descriptive operational summary with visible writing prompts */
 .opa-secondary{background:#edf3f8;color:#17466a;border:1px solid #cbd9e4;padding:9px 12px}
-#opa-form{background:#f7fafc;border:1px solid #d7e0e8;border-radius:9px;padding:15px;margin:12px 0}
-#opa-form h3{margin:0 0 9px;color:#153d60}#opa-form label{display:block;font-size:13px;font-weight:650;margin:9px 0 4px}
-#opa-form input,#opa-form textarea,#opa-form select,.opa-details input,.opa-details textarea,.opa-details select{width:100%;padding:9px;border:1px solid #b9c9d6;background:white;color:#172334;border-radius:7px;font:inherit}
-#opa-form textarea{height:82px}.opa-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.opa-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.opa-entry{border-top:1px solid #dce4eb;padding:10px 0}.opa-entry summary{cursor:pointer;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.opa-entry summary strong{flex:1;min-width:180px;color:#153d60}.opa-entry small{color:#526477}.opa-chip{border-radius:14px;padding:3px 8px;background:#edf3f8;font-size:12px;font-weight:650}
-.opa-chip.blocked{background:#fce6e6;color:#a61919}.opa-chip.pending{background:#fff3d4;color:#795000}.opa-chip.complete{background:#e5f3e8;color:#256b39}
-.opa-details{padding:12px;background:#f8fafc;border-radius:8px;margin-top:9px}.opa-details label{display:block;font-size:13px;font-weight:650;margin:10px 0 4px}
-.opa-details textarea{min-height:65px}.opa-details p{margin:5px 0}.opa-empty{padding:12px 0;color:#526477}
-.opa-hint{font-size:12px;color:#64748b;margin:4px 0 8px;line-height:1.4;font-weight:400}
-@media(max-width:650px){.opa-two{grid-template-columns:1fr}}
-
+.opa-narrative{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(200px,1fr);gap:14px;margin:12px 0}
+.opa-editor{min-width:0}.opa-editor label{display:block;font-size:14px;font-weight:700;margin:0 0 7px;color:#153d60}
+#opa-narrative{display:block;width:100%;min-height:220px;border:1px solid #b9c9d6;border-radius:8px;background:white;color:#172334;padding:12px;font:inherit;line-height:1.5;resize:vertical}
+.opa-guides{align-self:start;background:#f7f9fb;border:1px solid #e0e7ed;border-radius:9px;padding:12px 14px;color:#667b8a}
+.opa-guides strong{display:block;font-size:12px;margin-bottom:7px;color:#637888}
+.opa-guides p{font-size:12px;line-height:1.45;margin:0 0 10px}.opa-guides p:last-child{margin-bottom:0}
+.opa-tpe{display:block;font-size:11px;color:#8594a2;margin-top:3px}
+.opa-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.opa-hint{font-size:12px;color:#64748b;margin:5px 0 8px;line-height:1.4}
+@media(max-width:680px){.opa-narrative{grid-template-columns:1fr}.opa-guides{order:-1}.opa-guides p{margin-bottom:7px}}
 /* Rapid Incident Assessment: minimal manual triage; does not alter lifeline statuses */
 .incident-intake{border:1px solid #d7e0e8;border-radius:9px;background:#f8fafc;margin:12px 0;padding:13px}
 .incident-intake h3{font-size:17px;color:#153d60;margin:0 0 12px}.incident-intake h4{font-size:15px;color:#153d60;margin:0 0 6px}
@@ -134,24 +131,31 @@ footer{color:#526477;font-size:13px;line-height:1.6}.count{font-size:30px;font-w
 <p class="incident-hint">Suggestions are not verified impacts. Lifeline colors and assessments remain manually controlled.</p>
 </div>
 </div>
-<div class="lifeline-legend"><span>⚪ Unknown</span><span>🟢 Minimal</span><span>🟡 Moderate</span><span>🔴 Significant</span></div><p id="lifeline-summary" class="note" aria-live="polite">Eight lifelines · No assessments recorded</p><div class="lifeline-grid"><button type="button" class="lifeline-tile" data-lifeline="0" data-condition="unknown" aria-label="Safety and Security: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:0.00000% center" aria-hidden="true"></span></span><span class="lifeline-name">Safety and Security</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="1" data-condition="unknown" aria-label="Food, Hydration, Shelter: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:14.28571% center" aria-hidden="true"></span></span><span class="lifeline-name">Food, Hydration, Shelter</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="2" data-condition="unknown" aria-label="Health and Medical: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:28.57143% center" aria-hidden="true"></span></span><span class="lifeline-name">Health and Medical</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="3" data-condition="unknown" aria-label="Water Systems: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:42.85714% center" aria-hidden="true"></span></span><span class="lifeline-name">Water Systems</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="4" data-condition="unknown" aria-label="Energy: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:57.14286% center" aria-hidden="true"></span></span><span class="lifeline-name">Energy</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="5" data-condition="unknown" aria-label="Communications: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:71.42857% center" aria-hidden="true"></span></span><span class="lifeline-name">Communications</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="6" data-condition="unknown" aria-label="Transportation: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:85.71429% center" aria-hidden="true"></span></span><span class="lifeline-name">Transportation</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="7" data-condition="unknown" aria-label="Hazardous Materials: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:100.00000% center" aria-hidden="true"></span></span><span class="lifeline-name">Hazardous Materials</span><span class="lifeline-condition">Unknown</span></button></div><div class="lifeline-editor" id="lifeline-editor" hidden><h3 id="lifeline-selected-name">Lifeline assessment</h3><p class="note">Overall condition is assigned by the assessor based on component impacts, not automatically calculated.</p><label for="lifeline-status">Overall lifeline condition</label><select id="lifeline-status"><option value="unknown">Unknown (gray)</option><option value="green">Minimal impact (green)</option><option value="yellow">Moderate impact (yellow)</option><option value="red">Significant impact (red)</option></select><label for="lifeline-source">Assessment source / validating partner</label><input id="lifeline-source" placeholder="Agency, contact, field report or situation report"><label for="lifeline-notes">Overall assessment / key priorities</label><textarea id="lifeline-notes" rows="3" placeholder="Current situation, interdependencies and priority needs"></textarea><p id="lifeline-timestamp" class="note"></p><button type="button" id="lifeline-save">Save overall assessment</button> <button type="button" class="opa-secondary" id="opa-from-lifeline">Create operational action</button><h3>FEMA lifeline components</h3><p class="note">Expand a component to record What? / So What? / Now What? / What's the Gap? / When?</p><div id="lifeline-components"></div></div><p class="note">Saved only in this browser. Assessments are not shared with other devices or incident partners. Unknown is the default until verified.</p></section>
+<div class="lifeline-legend"><span>⚪ Unknown</span><span>🟢 Minimal</span><span>🟡 Moderate</span><span>🔴 Significant</span></div><p id="lifeline-summary" class="note" aria-live="polite">Eight lifelines · No assessments recorded</p><div class="lifeline-grid"><button type="button" class="lifeline-tile" data-lifeline="0" data-condition="unknown" aria-label="Safety and Security: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:0.00000% center" aria-hidden="true"></span></span><span class="lifeline-name">Safety and Security</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="1" data-condition="unknown" aria-label="Food, Hydration, Shelter: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:14.28571% center" aria-hidden="true"></span></span><span class="lifeline-name">Food, Hydration, Shelter</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="2" data-condition="unknown" aria-label="Health and Medical: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:28.57143% center" aria-hidden="true"></span></span><span class="lifeline-name">Health and Medical</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="3" data-condition="unknown" aria-label="Water Systems: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:42.85714% center" aria-hidden="true"></span></span><span class="lifeline-name">Water Systems</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="4" data-condition="unknown" aria-label="Energy: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:57.14286% center" aria-hidden="true"></span></span><span class="lifeline-name">Energy</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="5" data-condition="unknown" aria-label="Communications: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:71.42857% center" aria-hidden="true"></span></span><span class="lifeline-name">Communications</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="6" data-condition="unknown" aria-label="Transportation: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:85.71429% center" aria-hidden="true"></span></span><span class="lifeline-name">Transportation</span><span class="lifeline-condition">Unknown</span></button><button type="button" class="lifeline-tile" data-lifeline="7" data-condition="unknown" aria-label="Hazardous Materials: Unknown; open assessment"><span class="lifeline-ring"><span class="lifeline-symbol" style="background-position:100.00000% center" aria-hidden="true"></span></span><span class="lifeline-name">Hazardous Materials</span><span class="lifeline-condition">Unknown</span></button></div><div class="lifeline-editor" id="lifeline-editor" hidden><h3 id="lifeline-selected-name">Lifeline assessment</h3><p class="note">Overall condition is assigned by the assessor based on component impacts, not automatically calculated.</p><label for="lifeline-status">Overall lifeline condition</label><select id="lifeline-status"><option value="unknown">Unknown (gray)</option><option value="green">Minimal impact (green)</option><option value="yellow">Moderate impact (yellow)</option><option value="red">Significant impact (red)</option></select><label for="lifeline-source">Assessment source / validating partner</label><input id="lifeline-source" placeholder="Agency, contact, field report or situation report"><label for="lifeline-notes">Overall assessment / key priorities</label><textarea id="lifeline-notes" rows="3" placeholder="Current situation, interdependencies and priority needs"></textarea><p id="lifeline-timestamp" class="note"></p><button type="button" id="lifeline-save">Save overall assessment</button> <button type="button" class="opa-secondary" id="opa-from-lifeline">Add to operational summary</button><h3>FEMA lifeline components</h3><p class="note">Expand a component to record What? / So What? / Now What? / What's the Gap? / When?</p><div id="lifeline-components"></div></div><p class="note">Saved only in this browser. Assessments are not shared with other devices or incident partners. Unknown is the default until verified.</p></section>
 <section aria-label="Operational Priorities and Actions" id="operational-actions">
 <h2>Operational Priorities &amp; Actions</h2>
-<p class="note">From lifeline problems to assigned actions and verified outcomes. Single-browser live demo — not a shared incident record.</p>
-<div class="opa-bar"><span id="opa-summary" class="note">No actions recorded</span><div><button type="button" id="opa-add">+ Add action</button> <button type="button" id="opa-demo" class="opa-secondary">Load demo scenario</button></div></div>
-<form id="opa-form" hidden>
-<h3 id="opa-form-title">New action</h3>
-<label for="opa-problem">Problem</label><input id="opa-problem" maxlength="180" required aria-describedby="opa-problem-hint"><p class="opa-hint" id="opa-problem-hint">What is happening? What is disrupted or at risk?</p>
-<label for="opa-action">Action <span title="Task · Purpose · End State: What needs to happen, why, and what does success look like?" aria-label="Task, Purpose, End State guidance">ⓘ</span></label>
-<textarea id="opa-action" rows="3" maxlength="700" required aria-describedby="opa-action-hint"></textarea><p class="opa-hint" id="opa-action-hint">What needs to happen, why does it matter, and what does success look like? (Task · Purpose · End State)</p>
-<div class="opa-two"><div><label for="opa-owner">Assigned to</label><input id="opa-owner" maxlength="100" required aria-describedby="opa-owner-hint"><p class="opa-hint" id="opa-owner-hint">Who is responsible for the next action?</p></div><div><label for="opa-priority">Priority</label><select id="opa-priority"><option>Critical</option><option selected>High</option><option>Routine</option></select></div></div>
-<label for="opa-lifeline">Related lifeline (optional)</label><select id="opa-lifeline"><option value="">None / Other</option><option>Safety and Security</option><option>Food, Hydration, Shelter</option><option>Health and Medical</option><option>Water Systems</option><option>Energy</option><option>Communications</option><option>Transportation</option><option>Hazardous Materials</option></select>
-<div class="opa-buttons"><button type="submit" id="opa-save">Save action</button><button type="button" class="opa-secondary" id="opa-cancel">Cancel</button></div>
-</form>
-<div id="opa-list" aria-live="polite"></div>
-<div class="opa-buttons"><button type="button" class="opa-secondary" id="opa-show" hidden>Show all actions</button><button type="button" class="opa-secondary" id="opa-export" hidden>Export CSV</button><button type="button" class="opa-secondary" id="opa-reset" hidden>Clear demo actions</button></div>
-<p class="note">Actions are saved in this browser only. Do not enter sensitive or confidential operational information. Completing a task does not automatically resolve a lifeline impact.</p>
-</section></section><section class="dashboard-group" id="dashboard-warning"><h2>5. Public Warning &amp; Messaging</h2><div class="operations-links"><a href="https://agency.nixle.com/login/?next=/news/" target="_blank" rel="noopener noreferrer"><strong>Nixle / Everbridge ↗</strong><span>Public notification and alert management</span></a></div><section><h2>Public-information draft</h2><p class="meta">Generated from available NWS alert text. Review before posting; not an automatic public warning.</p><textarea id="summary" readonly></textarea><p><button id="copy">Copy summary</button></p></section></section><footer>Data source: <a href="https://api.weather.gov/" target="_blank" rel="noopener">api.weather.gov</a>. Forecast data and alerts may be delayed, revised, or unavailable. Always verify critical decisions with official NWS products. This dashboard does not provide automatic notifications and should not be your sole warning source. Refreshes are manual.</footer></main><script>
+<p class="note">A short, evolving incident summary — focus on priorities, assignments, and results rather than tracking individual tasks.</p>
+<div class="opa-narrative">
+<div class="opa-editor">
+<label for="opa-narrative">Operational summary</label>
+<textarea id="opa-narrative" rows="10" maxlength="12000" aria-describedby="opa-guides opa-storage-note"></textarea>
+<p class="opa-hint" id="opa-save-state" aria-live="polite">Saved only in this browser.</p>
+</div>
+<aside class="opa-guides" id="opa-guides" aria-label="Persistent writing prompts">
+<strong>Writing prompts</strong>
+<p>What’s happening? What are the most important impacts?</p>
+<p>What can we do? What resources or partners can help?</p>
+<p>What’s next? Who will do what, why, and toward what result? <span class="opa-tpe">(Task · Purpose · End State)</span></p>
+<p>What changed? What has been achieved, and what remains unresolved?</p>
+</aside>
+</div>
+<div class="opa-buttons">
+<button type="button" id="opa-copy">Copy summary</button>
+<button type="button" id="opa-import" class="opa-secondary" hidden>Import previous actions</button>
+<button type="button" id="opa-clear" class="opa-secondary">Clear summary</button>
+</div>
+<p class="note" id="opa-storage-note">Browser-local draft only; not a shared incident record. Avoid sensitive information. Existing recorded actions are retained separately in this browser.</p>
+</section></section></section><section class="dashboard-group" id="dashboard-warning"><h2>5. Public Warning &amp; Messaging</h2><div class="operations-links"><a href="https://agency.nixle.com/login/?next=/news/" target="_blank" rel="noopener noreferrer"><strong>Nixle / Everbridge ↗</strong><span>Public notification and alert management</span></a></div><section><h2>Public-information draft</h2><p class="meta">Generated from available NWS alert text. Review before posting; not an automatic public warning.</p><textarea id="summary" readonly></textarea><p><button id="copy">Copy summary</button></p></section></section><footer>Data source: <a href="https://api.weather.gov/" target="_blank" rel="noopener">api.weather.gov</a>. Forecast data and alerts may be delayed, revised, or unavailable. Always verify critical decisions with official NWS products. This dashboard does not provide automatic notifications and should not be your sole warning source. Refreshes are manual.</footer></main><script>
 const BASE='https://api.weather.gov', LAT=37.811, LON=-107.665, ALERT_ZONES=['COC111','COZ018','COZ019','COZ295'];
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
@@ -844,92 +848,87 @@ setInterval(refreshDssFreshness,5*60*1000);
  if(parent.querySelector(':scope > details.compact-details[open]')){o.disconnect();refresh()}
 })();
 
-/* Operational Priorities & Actions — isolated browser-local demo */
+/* Operational Priorities & Actions — a single browser-local narrative */
 (function(){
- const key='sjc_operational_actions_demo_v1';
- const $=id=>document.getElementById(id);
- const form=$('opa-form'),list=$('opa-list');
- if(!form||!list)return;
- let items=[],showAll=false,editing=null;
- try{const saved=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(saved))items=saved.filter(x=>x&&typeof x==='object').slice(0,100)}catch(e){}
- const lifelines=['Safety and Security','Food, Hydration, Shelter','Health and Medical','Water Systems','Energy','Communications','Transportation','Hazardous Materials'];
- const sample=[
-  {id:'demo-1',problem:'Medical transportation',action:'Coordinate with CDOT and EMS to confirm alternate medical transport options so patients retain access to emergency care.',owner:'EMS',priority:'Critical',lifeline:'Transportation',status:'In Progress',outcome:'',demo:true},
-  {id:'demo-2',problem:'Stranded travelers',action:'Verify available shelter capacity with the Town so stranded travelers have safe accommodations during prolonged road closures.',owner:'Town',priority:'High',lifeline:'Food, Hydration, Shelter',status:'Pending',outcome:'',demo:true},
-  {id:'demo-3',problem:'Public travel advisory',action:'Distribute verified closure information so travelers can make safe decisions and avoid closed routes.',owner:'OEM / PIO',priority:'Routine',lifeline:'Communications',status:'Complete',outcome:'Sample outcome: advisory issued.',demo:true}
- ];
- function store(){try{localStorage.setItem(key,JSON.stringify(items))}catch(e){alert('Unable to save in this browser. Export actions before leaving.')} }
- function option(select,values,value){values.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;select.append(o)});select.value=value}
- function el(tag,cls,content){const n=document.createElement(tag);if(cls)n.className=cls;if(content!==undefined)n.textContent=content;return n}
- function openForm(lifeline='',id=null){
-  editing=id;const x=items.find(a=>a.id===id);
-  $('opa-form-title').textContent=x?'Edit action':'New action';
-  $('opa-problem').value=x?.problem||'';$('opa-action').value=x?.action||'';$('opa-owner').value=x?.owner||'';
-  $('opa-priority').value=x?.priority||'High';$('opa-lifeline').value=x?.lifeline||lifeline;
-  form.hidden=false;
-  const group=$('operational-actions');
-  const compact=group?.querySelector(':scope > details.compact-details');
-  if(compact)compact.open=true;
-  for(let ancestor=group?.parentElement;ancestor;ancestor=ancestor.parentElement){
-   if(ancestor.matches('details.compact-details'))ancestor.open=true;
-  }
-  form.scrollIntoView({block:'nearest'});$('opa-problem').focus()
+ const key='sjc_em_operational_narrative_v1',legacyKey='sjc_operational_actions_demo_v1';
+ const $=id=>document.getElementById(id),area=$('opa-narrative'),saved=$('opa-save-state'),copy=$('opa-copy'),importBtn=$('opa-import');
+ if(!area)return;
+ let documentState={text:'',updated:'',legacyImported:false};
+ try{
+  const existing=JSON.parse(localStorage.getItem(key)||'null');
+  if(existing&&typeof existing.text==='string')documentState={text:existing.text,updated:existing.updated||'',legacyImported:!!existing.legacyImported};
+ }catch(e){}
+ let oldActions=[];
+ try{
+  const stored=JSON.parse(localStorage.getItem(legacyKey)||'[]');
+  if(Array.isArray(stored))oldActions=stored.filter(x=>x&&typeof x==='object'&&!x.demo).slice(0,100);
+ }catch(e){}
+ area.value=documentState.text;
+ function updateUI(){
+  copy.disabled=!area.value.trim();
+  importBtn.hidden=!oldActions.length||documentState.legacyImported;
+  saved.textContent=documentState.updated?'Saved in this browser · '+new Date(documentState.updated).toLocaleString():'Draft saved locally as you type.';
  }
- function closeForm(){form.hidden=true;editing=null}
- function render(){
-  list.replaceChildren();
-  const active=items.filter(x=>x.status!=='Complete'),blocked=active.filter(x=>x.status==='Blocked').length;
-  $('opa-summary').textContent=active.length+' active · '+blocked+' blocked · '+items.filter(x=>x.status==='Complete').length+' complete';
-  const ranks={Critical:0,High:1,Routine:2};
-  const ordered=[...items].sort((a,b)=>(a.status==='Complete')-(b.status==='Complete')||(ranks[a.priority]??3)-(ranks[b.priority]??3));
-  const visible=showAll?ordered:ordered.slice(0,3);
-  if(!items.length)list.append(el('p','opa-empty','No actions recorded. Add an action or load the clearly marked demo scenario.'));
-  for(const x of visible){
-   const detail=el('details','opa-entry'),summary=el('summary');
-   summary.append(el('span','opa-chip',x.priority),el('strong','',x.problem),el('small','',x.owner+(x.lifeline?' · '+x.lifeline:'')),el('span','opa-chip '+x.status.toLowerCase().replace(/ /g,'-'),x.status));
-   const body=el('div','opa-details');
-   body.append(el('p','',x.action));
-   const labelStatus=el('label','', 'Status'),status=el('select');option(status,['Pending','In Progress','Blocked','Complete'],x.status);
-   labelStatus.append(status);status.addEventListener('change',()=>{x.status=status.value;store();render()});body.append(labelStatus);
-   const labelOutcome=el('label','', 'Outcome / current result'),outcome=el('textarea');
-   outcome.value=x.outcome||'';outcome.placeholder='';const outcomeHint=el('p','opa-hint','What happened? Was the intended result achieved?');
-   outcome.addEventListener('change',()=>{x.outcome=outcome.value;store()});labelOutcome.append(outcome);body.append(labelOutcome,outcomeHint);
-   const buttons=el('div','opa-buttons'),edit=el('button','opa-secondary','Edit action'),del=el('button','opa-secondary','Remove');
-   edit.type='button';del.type='button';edit.addEventListener('click',()=>openForm('',x.id));
-   del.addEventListener('click',()=>{if(confirm('Remove this action?')){items=items.filter(a=>a.id!==x.id);store();render()}});
-   buttons.append(edit,del);body.append(buttons);detail.append(summary,body);list.append(detail)
-  }
-  $('opa-show').hidden=items.length<=3;$('opa-show').textContent=showAll?'Show top three':'Show all '+items.length+' actions';
-  $('opa-export').hidden=!items.length;$('opa-reset').hidden=!items.some(x=>x.demo)
+ function save(){
+  documentState.text=area.value;
+  documentState.updated=new Date().toISOString();
+  try{localStorage.setItem(key,JSON.stringify(documentState))}
+  catch(e){saved.textContent='Could not save in this browser. Copy your summary before leaving.';copy.disabled=!area.value.trim();return}
+  updateUI()
  }
- $('opa-add').addEventListener('click',()=>form.hidden?openForm():closeForm());
- $('opa-cancel').addEventListener('click',closeForm);
- form.addEventListener('submit',e=>{
-  e.preventDefault();const data={problem:$('opa-problem').value.trim(),action:$('opa-action').value.trim(),owner:$('opa-owner').value.trim(),priority:$('opa-priority').value,lifeline:$('opa-lifeline').value};
-  if(!data.problem||!data.action||!data.owner)return;
-  if(editing){const x=items.find(x=>x.id===editing);if(x)Object.assign(x,data)}
-  else items.push({...data,id:String(Date.now())+'-'+Math.random().toString(36).slice(2,7),status:'Pending',outcome:''});
-  store();closeForm();render()
+ function openAndFocus(){
+  const section=$('operational-actions');
+  for(let item=section;item;item=item.parentElement)
+   if(item.matches?.('details.compact-details'))item.open=true;
+  area.scrollIntoView({block:'nearest',behavior:'smooth'});
+  area.focus()
+ }
+ function appendNote(lifeline,problem){
+  let note=(lifeline?lifeline+(problem?' — ':''):'')+(problem||'');
+  note=note.trim();
+  if(!note){openAndFocus();return}
+  const prefix=area.value.trim()?'\n\n':'';
+  const addition='• '+note;
+  if((area.value+prefix+addition).length>area.maxLength){alert('Summary length limit reached. Copy or shorten your summary first.');return}
+  area.value+=prefix+addition;
+  save();openAndFocus();area.setSelectionRange(area.value.length,area.value.length)
+ }
+ area.addEventListener('input',save);
+ $('opa-from-lifeline')?.addEventListener('click',()=>{
+  const editor=$('lifeline-editor'),name=$('lifeline-selected-name')?.textContent||'';
+  const selected=editor&&!editor.hidden?name:'';
+  appendNote(selected,'')
  });
- $('opa-demo').addEventListener('click',()=>{if(items.length&&!confirm('Add three clearly marked sample actions to this browser?'))return;items.push(...sample.filter(x=>!items.some(a=>a.id===x.id)));store();render()});
- $('opa-show').addEventListener('click',()=>{showAll=!showAll;render()});
- $('opa-reset').addEventListener('click',()=>{if(!confirm('Clear demo scenario actions? Other actions will remain.'))return;items=items.filter(x=>!x.demo);store();render()});
- $('opa-from-lifeline')?.addEventListener('click',()=>{const box=$('lifeline-editor');const name=$('lifeline-selected-name')?.textContent;openForm(box&&!box.hidden&&lifelines.includes(name)?name:'')});
- document.addEventListener('sjc:create-operational-action',e=>{
-  const detail=e.detail||{},name=lifelines.includes(detail.lifeline)?detail.lifeline:'';
-  openForm(name);
-  if(typeof detail.problem==='string')$('opa-problem').value=detail.problem.slice(0,180);
+ document.addEventListener('sjc:create-operational-action',event=>{
+  const info=event.detail||{};
+  appendNote(typeof info.lifeline==='string'?info.lifeline:'',typeof info.problem==='string'?info.problem:'')
  });
- $('opa-export').addEventListener('click',()=>{
-  const cols=['Priority','Problem','Lifeline','Assigned To','Action','Status','Outcome'];
-  const quote=v=>'"'+String(v||'').replace(/"/g,'""')+'"';
-  const csv=[cols.map(quote).join(','),...items.map(x=>[x.priority,x.problem,x.lifeline,x.owner,x.action,x.status,x.outcome].map(quote).join(','))].join('\r\n');
-  const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
-  const a=document.createElement('a');a.href=url;a.download='sjc-operational-actions.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)
+ copy.addEventListener('click',()=>{
+  const txt=area.value.trim();if(!txt)return;
+  if(navigator.clipboard?.writeText)navigator.clipboard.writeText(txt).then(()=>{saved.textContent='Summary copied to clipboard.'}).catch(()=>fallbackCopy(txt));
+  else fallbackCopy(txt)
  });
- render()
+ function fallbackCopy(txt){
+  const temp=document.createElement('textarea');temp.value=txt;temp.style.position='fixed';temp.style.left='-9999px';
+  document.body.append(temp);temp.select();
+  try{document.execCommand('copy');saved.textContent='Summary copied to clipboard.'}
+  catch(e){saved.textContent='Clipboard unavailable. Select text and copy manually.'}
+  finally{temp.remove()}
+ }
+ $('opa-clear').addEventListener('click',()=>{
+  if(!area.value.trim())return;
+  if(!confirm('Clear the operational summary in this browser? Existing individual action records will remain stored separately.'))return;
+  area.value='';save();area.focus()
+ });
+ importBtn.addEventListener('click',()=>{
+  if(!oldActions.length||documentState.legacyImported)return;
+  const lines=oldActions.map(x=>'• '+[x.lifeline,x.problem].filter(Boolean).join(' — ')+(x.owner?' | Lead: '+x.owner:'')+(x.action?' | Action: '+x.action:'')+(x.status?' | Status: '+x.status:'')+(x.outcome?' | Outcome: '+x.outcome:''));
+  const addition=(area.value.trim()?'\n\n':'')+'Previously recorded actions:\n'+lines.join('\n');
+  if(area.value.length+addition.length>area.maxLength){alert('Previous actions exceed the summary length limit. Copy or shorten the summary before importing.');return}
+  area.value+=addition;documentState.legacyImported=true;save();openAndFocus()
+ });
+ updateUI()
 })();
-
 /* Rapid incident assessment — compact beta workflow integrated with existing lifelines + actions */
 (function(){
  const $=id=>document.getElementById(id),input=$('incident-description'),choices=$('incident-choices');
@@ -980,8 +979,8 @@ setInterval(refreshDssFreshness,5*60*1000);
     store();updateCount()
    });
    description.append(el('strong',name),el('small',suggestion?(suggestion.direct?'Direct: ':'Possible cascade: ')+suggestion.reason:'Manual review'));
-   const action=el('button','+ Action','opa-secondary');action.type='button';
-   action.setAttribute('aria-label','Create action for '+name);
+   const action=el('button','+ Summary','opa-secondary');action.type='button';
+   action.setAttribute('aria-label','Add '+name+' to operational summary');
    action.addEventListener('click',()=>document.dispatchEvent(new CustomEvent('sjc:create-operational-action',{
     detail:{lifeline:name,problem:suggestion?(suggestion.direct?suggestion.reason:'Verify: '+suggestion.reason):''}
    })));
