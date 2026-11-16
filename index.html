@@ -867,9 +867,12 @@ setInterval(refreshDssFreshness,5*60*1000);
   $('opa-problem').value=x?.problem||'';$('opa-action').value=x?.action||'';$('opa-owner').value=x?.owner||'';
   $('opa-priority').value=x?.priority||'High';$('opa-lifeline').value=x?.lifeline||lifeline;
   form.hidden=false;
-  const group=$('operational-actions')?.closest('section.dashboard-group');
+  const group=$('operational-actions');
   const compact=group?.querySelector(':scope > details.compact-details');
   if(compact)compact.open=true;
+  for(let ancestor=group?.parentElement;ancestor;ancestor=ancestor.parentElement){
+   if(ancestor.matches('details.compact-details'))ancestor.open=true;
+  }
   form.scrollIntoView({block:'nearest'});$('opa-problem').focus()
  }
  function closeForm(){form.hidden=true;editing=null}
