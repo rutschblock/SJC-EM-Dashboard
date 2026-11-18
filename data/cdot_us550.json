@@ -1,24 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-18T09:01:26.820633+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet; 7 - slushy to 9 - icy spots"
-      },
-      {
-        "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry to 4s - wet in areas"
-      }
-    ],
-    "previousSuccessAt": "2026-11-18T01:15:43.026063+00:00"
+    "checkedAt": "2026-11-18T09:03:07.144480+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-18T09:01:26.820633+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-18T09:01:26.820633+00:00",
-  "lastSuccessAt": "2026-11-18T09:01:26.820633+00:00",
+  "checkedAt": "2026-11-18T09:03:07.144480+00:00",
+  "lastSuccessAt": "2026-11-18T09:03:07.144480+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
