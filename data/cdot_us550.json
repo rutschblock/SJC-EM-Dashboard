@@ -1,39 +1,39 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-21T19:03:33.770696+00:00",
+    "checkedAt": "2026-11-21T19:44:18.420916+00:00",
     "changes": [
       {
         "segment": "US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)",
         "type": "report_changed",
-        "detail": "Operator report changed from 7-9-11 - slushy, icy spots, snow packed spots to 8-10 icy, snow packed"
+        "detail": "Operator report changed from 8-10 icy, snow packed to 3 - dry"
       },
       {
         "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
         "type": "report_changed",
-        "detail": "Operator report changed from 6-8-10 snow, icy, snow packed to 4 - wet; 7 - slushy; 9 - icy spots"
+        "detail": "Operator report changed from 4 - wet; 7 - slushy; 9 - icy spots to 4s - wet in areas"
       },
       {
         "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
         "type": "report_changed",
-        "detail": "Operator report changed from 6-8-10 snow, icy, snow packed to 4 - wet; 7 - slushy; 9 - icy spots"
+        "detail": "Operator report changed from 4 - wet; 7 - slushy; 9 - icy spots to 4s - wet in areas"
       },
       {
         "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
         "type": "report_changed",
-        "detail": "Operator report changed from 6-8-10 snow, icy, snow packed to 4 - wet; 7 - slushy; 9 - icy spots"
+        "detail": "Operator report changed from 4 - wet; 7 - slushy; 9 - icy spots to 4 - wet; 9 - icy spots"
       },
       {
         "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
         "type": "report_changed",
-        "detail": "Operator report changed from 7-9-11 - slushy, icy spots, snow packed spots to 4 - wet; 7 - slushy; 9 - icy spots"
+        "detail": "Operator report changed from 4 - wet; 7 - slushy; 9 - icy spots to 4s - wet in areas"
       }
     ],
-    "previousSuccessAt": "2026-11-21T12:30:01.576010+00:00"
+    "previousSuccessAt": "2026-11-21T19:03:33.770696+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-21T19:03:33.770696+00:00",
-  "lastSuccessAt": "2026-11-21T19:03:33.770696+00:00",
+  "checkedAt": "2026-11-21T19:44:18.420916+00:00",
+  "lastSuccessAt": "2026-11-21T19:44:18.420916+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -70,20 +70,20 @@
       "secondaryMP": 55.7869149410012,
       "currentConditions": [
         {
-          "conditionDescription": "8-10 icy, snow packed",
+          "conditionDescription": "3 - dry",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1795278050258,
-          "confirmationTime": 1795278050258,
-          "endTime": 4948878050258
+          "updateTime": 1795289385954,
+          "confirmationTime": 1795289385954,
+          "endTime": 4948889385954
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Partly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 25 mph are expected.",
-          "updateTime": 1795285132170,
-          "confirmationTime": 1795285132170,
-          "endTime": 1795306732170
+          "additionalData": "Partly cloudy. Wind gusts of up to 25 mph are expected.",
+          "updateTime": 1795288848729,
+          "confirmationTime": 1795288848729,
+          "endTime": 1795310448729
         }
       ]
     },
@@ -96,36 +96,20 @@
       "secondaryMP": 65.88309991558688,
       "currentConditions": [
         {
+          "conditionDescription": "4s - wet in areas",
+          "sourceType": "OPERATOR",
+          "additionalData": null,
+          "updateTime": 1795289408472,
+          "confirmationTime": 1795289408472,
+          "endTime": 4948889408472
+        },
+        {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 17 mph are expected.",
-          "updateTime": 1795285132170,
-          "confirmationTime": 1795285132170,
-          "endTime": 1795306732170
-        },
-        {
-          "conditionDescription": "4 - wet",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
-        },
-        {
-          "conditionDescription": "7 - slushy",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
-        },
-        {
-          "conditionDescription": "9 - icy spots",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
+          "additionalData": "Partly cloudy. Wind gusts of up to 17 mph are expected.",
+          "updateTime": 1795288848729,
+          "confirmationTime": 1795288848729,
+          "endTime": 1795310448729
         }
       ]
     },
@@ -138,36 +122,20 @@
       "secondaryMP": 74.88257952888567,
       "currentConditions": [
         {
-          "conditionDescription": "4 - wet",
+          "conditionDescription": "4s - wet in areas",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
-        },
-        {
-          "conditionDescription": "7 - slushy",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
-        },
-        {
-          "conditionDescription": "9 - icy spots",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
+          "updateTime": 1795289408472,
+          "confirmationTime": 1795289408472,
+          "endTime": 4948889408472
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 17 mph are expected.",
-          "updateTime": 1795285132170,
-          "confirmationTime": 1795285132170,
-          "endTime": 1795306732170
+          "additionalData": "Mostly cloudy. Wind gusts of up to 17 mph are expected.",
+          "updateTime": 1795288848729,
+          "confirmationTime": 1795288848729,
+          "endTime": 1795310448729
         }
       ]
     },
@@ -182,34 +150,26 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to 2 inches of new snow accumulation. Wind gusts of up to 20 mph are expected.",
-          "updateTime": 1795285132170,
-          "confirmationTime": 1795285132170,
-          "endTime": 1795306732170
+          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 20 mph are expected.",
+          "updateTime": 1795288848729,
+          "confirmationTime": 1795288848729,
+          "endTime": 1795310448729
         },
         {
           "conditionDescription": "4 - wet",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
-        },
-        {
-          "conditionDescription": "7 - slushy",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
+          "updateTime": 1795289415247,
+          "confirmationTime": 1795289415247,
+          "endTime": 4948889415247
         },
         {
           "conditionDescription": "9 - icy spots",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
+          "updateTime": 1795289415247,
+          "confirmationTime": 1795289415247,
+          "endTime": 4948889415247
         }
       ]
     },
@@ -222,36 +182,20 @@
       "secondaryMP": 130.2166222300553,
       "currentConditions": [
         {
-          "conditionDescription": "4 - wet",
+          "conditionDescription": "4s - wet in areas",
           "sourceType": "OPERATOR",
           "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
-        },
-        {
-          "conditionDescription": "7 - slushy",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
-        },
-        {
-          "conditionDescription": "9 - icy spots",
-          "sourceType": "OPERATOR",
-          "additionalData": null,
-          "updateTime": 1795282207878,
-          "confirmationTime": 1795282207878,
-          "endTime": 4948882207878
+          "updateTime": 1795289408472,
+          "confirmationTime": 1795289408472,
+          "endTime": 4948889408472
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Expect up to 2 inches of new snow accumulation. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1795285132170,
-          "confirmationTime": 1795285132170,
-          "endTime": 1795306732170
+          "additionalData": "Mostly cloudy. Expect up to a trace of new snow accumulation. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1795288848729,
+          "confirmationTime": 1795288848729,
+          "endTime": 1795310448729
         }
       ]
     }
