@@ -1,39 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-25T01:32:02.084098+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet; 8 - icy to 3 - dry; 4s - wet in areas"
-      },
-      {
-        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet; 8 - icy to 3 - dry; 4s - wet in areas"
-      },
-      {
-        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4 - wet; 8 - icy to 3 - dry; 4s - wet in areas"
-      },
-      {
-        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 6-8-10 snow, icy, snow packed to 3 - dry; 4s - wet in areas"
-      },
-      {
-        "segment": "US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 4s-9 - wet in areas, icy spots to 3 - dry; 4s - wet in areas"
-      }
-    ],
-    "previousSuccessAt": "2026-11-24T18:50:03.026046+00:00"
+    "checkedAt": "2026-11-25T02:59:44.288019+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-25T01:32:02.084098+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-25T01:32:02.084098+00:00",
-  "lastSuccessAt": "2026-11-25T01:32:02.084098+00:00",
+  "checkedAt": "2026-11-25T02:59:44.288019+00:00",
+  "lastSuccessAt": "2026-11-25T02:59:44.288019+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -89,9 +63,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Clear skies. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1795568680253,
-          "confirmationTime": 1795568680253,
-          "endTime": 1795590280253
+          "updateTime": 1795572508965,
+          "confirmationTime": 1795572508965,
+          "endTime": 1795594108965
         }
       ]
     },
@@ -123,9 +97,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Clear skies. Wind gusts of up to 11 mph are expected.",
-          "updateTime": 1795568680253,
-          "confirmationTime": 1795568680253,
-          "endTime": 1795590280253
+          "updateTime": 1795572508965,
+          "confirmationTime": 1795572508965,
+          "endTime": 1795594108965
         }
       ]
     },
@@ -156,10 +130,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Clear skies. Wind gusts of up to 7 mph are expected.",
-          "updateTime": 1795568680253,
-          "confirmationTime": 1795568680253,
-          "endTime": 1795590280253
+          "additionalData": "Mostly clear. Wind gusts of up to 7 mph are expected.",
+          "updateTime": 1795572508965,
+          "confirmationTime": 1795572508965,
+          "endTime": 1795594108965
         }
       ]
     },
@@ -174,10 +148,10 @@
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Clear skies. Wind gusts of up to 12 mph are expected.",
-          "updateTime": 1795568680253,
-          "confirmationTime": 1795568680253,
-          "endTime": 1795590280253
+          "additionalData": "Mostly clear. Wind gusts of up to 12 mph are expected.",
+          "updateTime": 1795572508965,
+          "confirmationTime": 1795572508965,
+          "endTime": 1795594108965
         },
         {
           "conditionDescription": "3 - dry",
@@ -225,9 +199,9 @@
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
           "additionalData": "Clear skies. Wind gusts of up to 9 mph are expected.",
-          "updateTime": 1795568680253,
-          "confirmationTime": 1795568680253,
-          "endTime": 1795590280253
+          "updateTime": 1795572508965,
+          "confirmationTime": 1795572508965,
+          "endTime": 1795594108965
         }
       ]
     }
