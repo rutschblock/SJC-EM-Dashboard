@@ -1,29 +1,13 @@
 {
   "changeTracking": {
     "initialized": true,
-    "checkedAt": "2026-11-25T20:05:49.112531+00:00",
-    "changes": [
-      {
-        "segment": "US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry; 9 - icy spots to 3 - dry"
-      },
-      {
-        "segment": "US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry; 9 - icy spots to 3 - dry"
-      },
-      {
-        "segment": "US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)",
-        "type": "report_changed",
-        "detail": "Operator report changed from 3 - dry; 9 - icy spots to 3 - dry"
-      }
-    ],
-    "previousSuccessAt": "2026-11-25T12:39:14.858160+00:00"
+    "checkedAt": "2026-11-25T22:25:56.565291+00:00",
+    "changes": [],
+    "previousSuccessAt": "2026-11-25T20:05:49.112531+00:00"
   },
   "status": "ok",
-  "checkedAt": "2026-11-25T20:05:49.112531+00:00",
-  "lastSuccessAt": "2026-11-25T20:05:49.112531+00:00",
+  "checkedAt": "2026-11-25T22:25:56.565291+00:00",
+  "lastSuccessAt": "2026-11-25T22:25:56.565291+00:00",
   "totalFeatures": 198,
   "routeFeatures": 6,
   "potentiallyTruncated": false,
@@ -64,16 +48,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1795636296156,
-          "confirmationTime": 1795636296156,
-          "endTime": 4949236296156
+          "confirmationTime": 1795644098226,
+          "endTime": 4949244098226
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 10 mph are expected.",
-          "updateTime": 1795636103177,
-          "confirmationTime": 1795636103177,
-          "endTime": 1795657703177
+          "additionalData": "Mostly cloudy. Wind gusts of up to 11 mph are expected.",
+          "updateTime": 1795643532656,
+          "confirmationTime": 1795644098226,
+          "endTime": 1795665698226
         }
       ]
     },
@@ -90,16 +74,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1795636296156,
-          "confirmationTime": 1795636296156,
-          "endTime": 4949236296156
+          "confirmationTime": 1795644098226,
+          "endTime": 4949244098226
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 7 mph are expected.",
-          "updateTime": 1795636103177,
-          "confirmationTime": 1795636103177,
-          "endTime": 1795657703177
+          "additionalData": "Mostly cloudy. Wind gusts of up to 11 mph are expected.",
+          "updateTime": 1795643532656,
+          "confirmationTime": 1795644098226,
+          "endTime": 1795665698226
         }
       ]
     },
@@ -116,16 +100,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1795636321718,
-          "confirmationTime": 1795636321718,
-          "endTime": 4949236321718
+          "confirmationTime": 1795644098226,
+          "endTime": 4949244098226
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 7 mph are expected.",
-          "updateTime": 1795636103177,
-          "confirmationTime": 1795636103177,
-          "endTime": 1795657703177
+          "additionalData": "Mostly cloudy. Wind gusts of up to 10 mph are expected.",
+          "updateTime": 1795643532656,
+          "confirmationTime": 1795644098226,
+          "endTime": 1795665698226
         }
       ]
     },
@@ -142,16 +126,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1795636296156,
-          "confirmationTime": 1795636296156,
-          "endTime": 4949236296156
+          "confirmationTime": 1795644098226,
+          "endTime": 4949244098226
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 11 mph are expected.",
-          "updateTime": 1795636103177,
-          "confirmationTime": 1795636103177,
-          "endTime": 1795657703177
+          "additionalData": "Mostly cloudy. Wind gusts of up to 19 mph are expected.",
+          "updateTime": 1795643532656,
+          "confirmationTime": 1795644098226,
+          "endTime": 1795665698226
         }
       ]
     },
@@ -168,16 +152,16 @@
           "sourceType": "OPERATOR",
           "additionalData": null,
           "updateTime": 1795636296156,
-          "confirmationTime": 1795636296156,
-          "endTime": 4949236296156
+          "confirmationTime": 1795644098226,
+          "endTime": 4949244098226
         },
         {
           "conditionDescription": "forecast text included",
           "sourceType": "NDFD",
-          "additionalData": "Mostly cloudy. Wind gusts of up to 7 mph are expected.",
-          "updateTime": 1795636103177,
-          "confirmationTime": 1795636103177,
-          "endTime": 1795657703177
+          "additionalData": "Mostly cloudy. Wind gusts of up to 11 mph are expected.",
+          "updateTime": 1795643532656,
+          "confirmationTime": 1795644098226,
+          "endTime": 1795665698226
         }
       ]
     }

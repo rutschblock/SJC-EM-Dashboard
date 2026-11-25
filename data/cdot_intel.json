@@ -1,13 +1,13 @@
 {
   "alerts": {
-    "checkedAt": "2026-11-25T12:39:17Z",
+    "checkedAt": "2026-11-25T22:25:59Z",
     "error": null,
     "features": [],
     "status": "ok",
     "truncated": false
   },
   "weather": {
-    "checkedAt": "2026-11-25T12:39:17Z",
+    "checkedAt": "2026-11-25T22:25:59Z",
     "error": null,
     "features": [
       {
